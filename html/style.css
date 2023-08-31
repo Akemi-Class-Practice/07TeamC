@@ -1,0 +1,204 @@
+.register-check{
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
+    background-color: rgb(192, 206, 231);
+    width: 500px;
+    height: 900px;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: #0d3652;
+}
+.register-check h2{
+    text-align: center;
+    padding-top: 30px;
+}
+.con-user{
+    text-align: center;
+}
+.change{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 50px;
+    height: 30px;
+    border-style: none;
+    margin-top: 10px;
+    margin-left: 220px;
+}
+.change:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.pay-change{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 50px;
+    height: 30px;
+    border-style: none;
+    margin-left: 220px;
+}
+.pay-change:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.all-check{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 50px;
+    height: 30px;
+    border-style: none;
+    margin-top: 50px;
+    margin-left: 165px;
+}
+.all-back{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 50px;
+    height: 30px;
+    border-style: none;
+    margin-left: 60px;
+}
+.all-check:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.all-back:hover{
+    color: black;
+    background-color: rgb(147, 144, 156);
+}
+.con-lecture,.con-pay{
+    text-align: center;
+}
+.con-pay h4{
+    margin-top: 40px;
+}
+.user-information{
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
+    background-color: rgb(192, 206, 231);
+    width: 430px;
+    height: 240px;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+.user-inf{
+    padding-left: 100px;
+    padding-top: 20px;
+    color: #0d3652;
+    
+}
+.user-inf h4{
+    padding-left: 80px;
+}
+.change-inf{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 50px;
+    height: 30px;
+    border-style: none;
+    margin-top: 30px;
+    margin-left: 190px;
+}
+.change-inf:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.pay-history{
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
+    background-color: rgb(192, 206, 231);
+    width: 500px;
+    height: auto;
+    color: #0d3652;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+.pay-history h4 {
+    text-align: center;
+    padding-top: 30px;
+}
+.pay-history p{
+    padding-left:190px;
+}
+.pay-history img{
+    padding-left: 160px;
+}
+.mypage h2{
+    text-align: center;
+    padding-bottom: 20px;
+    color: #0d3652;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+.pay-select{
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
+    background-color: rgb(192, 206, 231);
+    width: 430px;
+    height: 310px;
+}
+label{
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    color: #0d3652;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    margin-left: 120px;
+}
+.pay-check{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 50px;
+    height: 30px;
+    border-style: none;
+    margin-top: 30px;
+    margin-left: 120px;
+}
+.pay-back{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 50px;
+    height: 30px;
+    border-style: none;
+    margin-left: 60px;
+}
+.pay-check:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.pay-back:hover{
+    color: black;
+    background-color: rgb(147, 144, 156);
+}
+.pay-select h2{
+    color:#0d2641;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    margin-left: 120px;
+    padding-top: 30px;
+}
+.lecture-details{
+    
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<header>
+
+	</header>
+	<main>
+		<h2>お申込み内容確認</h2>
+		<div>
+			<div class="con-user">
+				<h5>会員情報</h5>
+				<p>ユーザー名：John Doe</p>
+				<p>メールアドレス：john@example.com</p>
+				<input type="button" value="変更">
+			</div>
+			<div class="con-lecture">
+				<h5>お申込み講座</h5>
+				<p>講座名：コンピュータサイエンス入門</p>
+				<p>日時：2023年9月1日 10:00 - 12:00</p>
+				<input type="button" value="変更">
+			</div>
+			<div class="con-pay">
+				<h5>お支払い方法</h5>
+				<p>選択した支払方法：<span th:text="${session.paymentMethod}"></span></p>
+				<input type="button" value="変更">
+			</div>
+			<form th:action="@{/payment_success}" method="post">
+				<button class="add">確認</button>
+			</form>
+			<button class="back" type="button">戻る</button>
+		</div>
+	</main>
+
+	<footer>
+
+	</footer>
+</body>
+
+</html>
