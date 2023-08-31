@@ -95,10 +95,12 @@
 .user-inf{
     padding-top: 20px;
     color: #0d3652;
-    
 }
 .user-inf h4{
     padding-left: 180px;
+}
+.user-inf p{
+    padding-left: 100px;
 }
 .change-inf{
     color: rgb(255, 255, 255);
@@ -132,6 +134,9 @@
     text-align: center;
     padding-top: 30px;
 }
+.pay-history p{
+    padding-left: 200px;
+}
 .pay-history img{
     padding-left: 150px;
 }
@@ -151,7 +156,7 @@
     width: 430px;
     height: 310px;
 }
-label{
+.pay-select label{
     display: block;
     text-align: left;
     margin-top: 15px;
@@ -212,7 +217,10 @@ label{
     text-align: center;
     padding-top: 20px;
 }
-.lecture-details h4,p{
+.lecture-details h4{
+    text-align: center;
+}
+.lecture-details p{
     text-align: center;
 }
 .lecture-details img{
@@ -256,4 +264,255 @@ label{
     font-family: 'Borel', cursive;
     font-family: 'Kosugi Maru', sans-serif;
     color: #0d3652;
+}
+.lecture-topic-article{
+    text-align: center;
+}
+.lecture-list-section img{
+    margin-left: 30px;
+}
+.lecture-list-section h2{
+    text-align: center;
+}
+.password-change{
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
+    background-color: rgb(192, 206, 231);
+    width: 400px;
+    height: 210px;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: #0d3652;
+}
+.password-change h2{
+    padding-top: 20px;
+    text-align: center;
+}
+.password-change-set label,.password-change-set input{
+   margin-left: 20px;
+   margin-top: 15px;
+}
+.password-change-set input{
+   margin-left: 84px;
+}
+.password-change-set2 label,.password-change-set2 input{
+    margin-left: 20px;
+    margin-top: 15px;
+ }
+.password-change-check{
+   margin-left: 180px;
+   margin-top: 20px;
+}
+.password-change-check{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 80px;
+    height: 30px;
+    border-style: none;
+    margin-top: 30px;
+    margin-left: 150px;
+}
+.password-change-check:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.password-reset{
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
+    background-color: rgb(192, 206, 231);
+    width: 400px;
+    height: 250px;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: #0d3652;
+}
+.password-reset h2{
+    padding-top: 20px;
+    text-align: center;
+}
+.password-reset-check{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 80px;
+    height: 30px;
+    border-style: none;
+    margin-top: 20px;
+    margin-left: 165px;
+}
+.password-reset-check:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.email-sent{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 90px;
+    height: 30px;
+    border-style: none;
+    margin-top: 20px;
+    margin-left: 160px;
+}
+.email-sent:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.email-in{
+    margin-top: 30px;
+    margin-left: 60px;
+}
+.code-in{
+    margin-top: 20px;
+    margin-left: 70px;
+}
+.cart{
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
+    background-color: rgb(192, 206, 231);
+    width: 600px;
+    height: auto;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: #0d3652;
+}
+.cart-item{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+.cart-item img{
+    width: 100px;
+    height: 50px;
+}
+.cart h2{
+    text-align: center;
+    padding-top: 20px;
+}
+.cart-summary-submit{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 60px;
+    height: 30px;
+    border-style: none;
+    margin-top: 10px;
+    margin-left: 225px;
+    margin-bottom: 20px;
+}
+.cart-summary-submit:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.cart-back{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 50px;
+    height: 30px;
+    border-style: none;
+    margin-left: 40px;
+}
+.cart-back:hover{
+    color: black;
+    background-color: rgb(147, 144, 156);
+}
+.cart-summary-total{
+    text-align: center;
+}
+.cart-item-title{
+    padding-left: 40px;
+}
+.cart-item-price{
+    padding-left: 40px;
+}
+.cart-item-delete{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 60px;
+    height: 30px;
+    border-style: none;
+    margin-top: 10px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+.cart-item-delete:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
+}
+.cart-item-quantity{
+    margin-left: 50px;
+}
+.pay-end{
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
+    background-color: rgb(192, 206, 231);
+    width: 400px;
+    height: 200px;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: #0d3652;
+    text-align: center;
+}
+.pay-end h2{
+    padding-top: 20px;
+}
+.back-home{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 50px;
+    height: 30px;
+    border-style: none;
+}
+.back-home:hover{
+    color: black;
+    background-color: rgb(147, 144, 156);
+}
+.password-success{
+    width: 210px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
+    background-color: rgb(192, 206, 231);
+    width: 400px;
+    height: 150px;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: #0d3652;
+    text-align: center;
+}
+.password-success h2{
+    padding-top: 30px;
+}
+.relogin{
+    color: rgb(255, 255, 255);
+    background-color: rgb(79, 133, 169);
+    border-radius: 2vh;
+    outline-color: black;
+    width: 100px;
+    height: 30px;
+    border-style: none;
+    margin-top: 20px;
+}
+.relogin:hover{
+    color: rgb(203, 235, 235);
+    background-color: rgb(51, 102, 112);
 }
