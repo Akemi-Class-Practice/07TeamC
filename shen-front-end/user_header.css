@@ -17,11 +17,11 @@ h3{
     font-size: 2.827em;
     text-align: center;
 }
-ul{
+.header-menu ul{
     display: flex;
 }
 
-li{
+.header-menu li{
     list-style: none;
     margin-left: 50px;
     color: #0d3652;
