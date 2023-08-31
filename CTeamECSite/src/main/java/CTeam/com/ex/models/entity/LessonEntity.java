@@ -17,7 +17,7 @@ public class LessonEntity {
 	@Id
 	@Column(name = "lesson_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long lessonId;
+	private Long lessonId;
 	
 	@Column(name = "start_date")
 	private LocalDate startDate;

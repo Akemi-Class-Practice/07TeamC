@@ -16,7 +16,7 @@ public class AdminEntity {
 	@Id
 	@Column(name = "admin_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long adminId;
+	private Long adminId;
 	
 	@Column(name = "admin_name")
 	private String adminName;
@@ -33,9 +33,9 @@ public class AdminEntity {
 	@Column(name = "register_date")
 	private LocalDate registerDate;
 
-	public AdminEntity(long adminId, String adminName, String adminEmail, String adminPassword, int deleteFlg,
+	public AdminEntity(String adminName, String adminEmail, String adminPassword, int deleteFlg,
 			LocalDate registerDate) {
-		this.adminId = adminId;
+		
 		this.adminName = adminName;
 		this.adminEmail = adminEmail;
 		this.adminPassword = adminPassword;

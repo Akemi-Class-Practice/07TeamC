@@ -16,10 +16,10 @@ public class Transaction_HistoryEntity {
 	@Id
 	@Column(name = "transaction_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long transactionId;
+	private Long transactionId;
 	
 	@Column(name = "student_id")
-	private long studentId;
+	private Long studentId;
 	
 	@Column(name = "amount")
 	private int amount;

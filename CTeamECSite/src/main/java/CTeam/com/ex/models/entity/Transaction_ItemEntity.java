@@ -14,13 +14,13 @@ public class Transaction_ItemEntity {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	
 	@Column(name = "lesson_id")
-	private long lessonId;
+	private Long lessonId;
 	
 	@Column(name = "transaction_id")
-	private long transactionId;
+	private Long transactionId;
 
 	public Transaction_ItemEntity(long id, long lessonId, long transactionId) {
 		this.id = id;
