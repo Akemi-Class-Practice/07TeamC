@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Borel&family=Kosugi+Maru&family=Rubik+Iso&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <title>registration_confirmation</title>
+    <link rel="stylesheet" href="user_header.css">
+    <link rel="stylesheet" href="user_style.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-menu">
+            <ul>
+                <li>ユーザー名</li>
+                <li>ホーム</li>
+                <li>カート</li>
+                <li>マイページ</li>
+                <li>ログアウト</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="title">Lecture</h3>
+        </div>
+    </header>
+    <main>
+        <div class="register-check">
+            <h2>お申込み内容確認</h2>
+            <div>
+                <div class="con-user">
+                    <h4>会員情報</h4>
+                    <p>名前：xxx</p>
+                    <p>メールアドレス：xxx＠xxx</p>
+                </div>
+                <button class="change">変更</button>
+                <div class="con-lecture">
+                    <h4>お申込み講座</h4>
+                    <img src="IMG_6819.jpg" alt="">
+                    <p>講座名：java</p>
+                    <p>購入日：2023/08/30</p>
+                    <p>金額：12000円</p>
+                </div>
+                <button class="change">変更</button>
+                <div class="con-pay">
+                    <h4>お支払い方法</h4>
+                    <p><span th:text="${session.paymentMethod}"></span></p>
+                </div>
+                <button class="pay-change">変更</button>
+                <div>
+                    <form th:action="@{/payment_success}" method="post">
+                        <button class="all-check">確認</button>
+                        <button class="all-back" type="button">戻る</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="foot"> Copyright &copy; 2023 </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+
+.header-menu{
+    text-align: right;
+    padding-left: 300px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    margin-left: 100px;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+}
+h3{
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    font-family: 'Rubik Iso', cursive;
+    color: #0d3652;
+    font-size: 2.827em;
+    text-align: center;
+}
+.header-menu ul{
+    display: flex;
+}
+
+.header-menu li{
+    list-style: none;
+    margin-left: 50px;
+    color: #0d3652;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(ellipse at center,#829ac9, #ffffff);
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+footer{
+    height: 10px;
+    padding-top: 30px;
+    text-align: center;
+    color: #0d3652;
+}
+img{
+    width: 200px;
+}
