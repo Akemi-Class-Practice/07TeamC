@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>講座登録内容確認</title>
-    <style>
+    <!--<style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -51,15 +52,17 @@
             padding: 10px 0;
             text-align: center;
         }
-    </style>
+    </style>-->
+    <link rel="stylesheet" href="lecture_register.css">
 </head>
+
 <body>
     <header>
         <div class="user-info">
             <p>管理者名</p>
         </div>
         <div class="actions">
-            <a href="lecture_registration.html">新しい講座を作成</a> | 
+            <a href="lecture_registration.html">新しい講座を作成</a> |
             <a href="#">ログアウト</a>
         </div>
         <div style="clear:both;"></div>
@@ -79,13 +82,14 @@
             </div>
             <form th:action="@{/lecture_registration_confirmation}" method="post">
                 <button class="add">確認</button>
+                <button class="back" type="button">戻る</button>
             </form>
-            <button class="back" type="button" >戻る</button>
         </div>
-        
+
     </main>
     <footer>
-        <p>&copy; 2023 〇〇学院</p>
+        <p>COPYRIGHT&copy;2023TeamC</p>
     </footer>
 </body>
+
 </html>

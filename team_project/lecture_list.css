@@ -26,16 +26,20 @@ ul{
     padding: 100px 100px;
 }
 section{
-    width: 300px;
-    margin: auto;
-    margin-top: 210px;
+    /*width: 300px;
+    margin: auto;*/
+    margin-top: 100px;
     /*margin-bottom: 100px;*/
+    display: flex;
+    gap: 0 50px;
+    justify-content: center;
 }
 h1{
     border-bottom: 5px solid #84a2d4;
     width: fit-content;
+    margin: 200px 200px 0 200px;
 }
-form{
+.lecture{
     border-style: double;
     border-radius: 5px;
     border-color: #84a2d4;

@@ -33,6 +33,7 @@ section{
 }
 h1{
     border-bottom: 5px solid #84a2d4;
+    width: fit-content;
 }
 div{
     border-style: double;
