@@ -47,10 +47,10 @@ public class LessonEntity {
 	private int deleteFlg;
 	
 	@Column(name = "admin_id")
-	private long adminId;
+	private Long adminId;
 
-	public LessonEntity(long lessonId, LocalDate startDate, Time startTime, Time finishTime, String lessonName,
-			String lessonDetail, int lessonFee, String imageName, LocalDate registerDate, int deleteFlg, long adminId) {
+	public LessonEntity(Long lessonId, LocalDate startDate, Time startTime, Time finishTime, String lessonName,
+			String lessonDetail, int lessonFee, String imageName, LocalDate registerDate, int deleteFlg, Long adminId) {
 		this.lessonId = lessonId;
 		this.startDate = startDate;
 		this.startTime = startTime;
