@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支払い完了</title>
+</head>
+<body>
+    <header>
+        <h1>支払い完了</h1>
+    </header>
+    <main>
+        <p>支払いが正常に処理されました。</p>
+        <p>支払い方法： <span th:text="${paymentMethod}"></span></p>
+        <p>カードの残高は：<span th:text="${zandaka}"></span></p>
+    </main>
+    <footer>
+        <p>&copy; 2023 〇〇学院</p>
+    </footer>
+</body>
+</html>

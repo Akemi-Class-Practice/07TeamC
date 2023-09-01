@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	
+    <header id="header">
+        <img src="/Users/zhao.xu/Desktop/bg.jpg" alt="网站logo">
+    </header>	
+    <form th:action="@{/student/register/confirm}" method="post">
+        <div>
+            <h2>ユーザー情報</h2>
+            <label for="studentName">ユーザー名</label><br>
+            <input type="text" id="studentName" name="studentName" required><br>
+
+            <label for="studentEmail">メールアドレス</label><br>
+            <input type="text" id="studentEmail" name="studentEmail" required><br>
+
+            <label for="studentPassword">パスワード</label><br>
+            <input type="password" id="studentPassword" name="studentPassword" required><br>
+
+            <input type="submit" value="登録" />
+            <button type="button" onclick="history.back()">戻る</button>
+        </div>
+    </form>
+</body>
+</html>
