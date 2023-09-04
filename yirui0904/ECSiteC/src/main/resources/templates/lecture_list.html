@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>講座一覧</title>
+    <link rel="stylesheet" th:href="@{/css/lecture.css}">
+    <!--<style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header .user-info {
+            float: left;
+            padding-left: 20px;
+        }
+        header .actions {
+            float: right;
+            padding-right: 20px;
+        }
+        main {
+            padding: 20px;
+        }
+        .lecture {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            position: relative;
+        }
+        .lecture .buttons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>-->
+</head>
+<body>
+    <header>
+        <div class="user-info">
+            <p>管理者名</p>
+        </div>
+        <div class="actions">
+            <a href="lecture_registration.html">新しい講座を作成</a>
+            <a href="#">ログアウト</a>
+        </div>
+        <div style="clear:both;"></div>
+        <h1>講座一覧</h1>
+    </header>
+    <main>
+        <!-- 例の講座 1 -->
+        <div class="lecture">
+            <div class="buttons">
+                <a href="lecture_delete.html">削除</a> | 
+                <a href="lecture_image_edit.html">画像変更</a> | 
+                <a href="lecture_edit.html">編集</a>
+            </div>
+            <h2>講座タイトル 1</h2>
+            <p>講座 1 の説明...</p>
+            <a href="#">詳細を読む</a>
+        </div>
+        
+        <!-- 例の講座 2 -->
+        <div class="lecture">
+            <div class="buttons">
+                <a href="lecture_delete.html">削除</a> | 
+                <a href="lecture_image_edit.html">画像変更</a> | 
+                <a href="lecture_edit.html">編集</a>
+            </div>
+            <h2>講座タイトル 2</h2>
+            <p>講座 2 の説明...</p>
+            <a href="#">詳細を読む</a>
+        </div>
+
+        
+    </main>
+    <footer>
+        <p>&copy; 2023 〇〇学院</p>
+    </footer>
+</body>
+</html>

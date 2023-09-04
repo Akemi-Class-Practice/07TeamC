@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture Registration</title>
+    <!--<style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header .user-info {
+            float: left;
+            padding-left: 20px;
+        }
+        header .actions {
+            float: right;
+            padding-right: 20px;
+        }
+        main {
+            padding: 20px;
+        }
+        .registration-form {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>-->
+</head>
+<body>
+    <header>
+        <div class="user-info">
+            <p>管理者名</p>
+        </div>
+        <div class="actions">
+            <a href="lecture_registration.html">新しい講座を作成</a> | 
+            <a href="#">ログアウト</a>
+        </div>
+        <div style="clear:both;"></div>
+        <h1>講座編集</h1>
+    </header>
+    <main>
+        <div class="registration-form">
+            <form enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="courseName">講座名</label>
+                    <input type="text" id="courseName" name="courseName" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseDescription">講座詳細</label>
+                    <textarea id="courseDescription" name="courseDescription" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="courseDate">講座日</label>
+                    <input type="date" id="courseDate" name="courseDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="startTime">開始時間</label>
+                    <input type="time" id="startTime" name="startTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="endTime">終了時間</label>
+                    <input type="time" id="endTime" name="endTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseFee">講座費用</label>
+                    <input type="number" id="courseFee" name="courseFee" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseImage">講座画像</label>
+                    <input type="file" id="courseImage" name="courseImage" accept="image/*" required>
+                </div>
+                <button type="submit">講座登録</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 〇〇学院</p>
+    </footer>
+</body>
+</html>
