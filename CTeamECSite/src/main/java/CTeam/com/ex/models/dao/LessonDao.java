@@ -16,8 +16,10 @@ public interface LessonDao  extends JpaRepository<LessonEntity,Long>{
 	LessonEntity save(LessonEntity lessonentity);
 	
 	//LessonNameとregisterDateを使用して、LessonEntityのなかから一致するものを検索して返します
-	LessonEntity findByLessonNameAndregisterDate(String LessonName,LocalDate registerDate);
+	LessonEntity findByLessonName(String LessonName);
 	
+	// 指定されたlessonIdに基づいて、データベース内のLessonEntityを検索して返します
+	LessonEntity findByLessonId(Long lessonId);
 	//削除
 	@Transactional
 	List<LessonEntity>deleteByLessonId(Long LessonId);

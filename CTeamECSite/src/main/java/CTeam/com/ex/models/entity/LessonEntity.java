@@ -1,7 +1,7 @@
 package CTeam.com.ex.models.entity;
 
-import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,10 +23,10 @@ public class LessonEntity {
 	private LocalDate startDate;
 	
 	@Column(name = "start_time")
-	private Time startTime;
+	private LocalTime startTime;
 	
 	@Column(name = "finish_time")
-	private Time finishTime;
+	private LocalTime finishTime;
 	
 	@Column(name = "lesson_name")
 	private String lessonName;
@@ -49,9 +49,12 @@ public class LessonEntity {
 	@Column(name = "admin_id")
 	private Long adminId;
 
-	public LessonEntity(Long lessonId, LocalDate startDate, Time startTime, Time finishTime, String lessonName,
+	public LessonEntity() {
+		
+	}
+
+	public LessonEntity(LocalDate startDate, LocalTime startTime, LocalTime finishTime, String lessonName,
 			String lessonDetail, int lessonFee, String imageName, LocalDate registerDate, int deleteFlg, Long adminId) {
-		this.lessonId = lessonId;
 		this.startDate = startDate;
 		this.startTime = startTime;
 		this.finishTime = finishTime;
@@ -64,11 +67,11 @@ public class LessonEntity {
 		this.adminId = adminId;
 	}
 
-	public long getLessonId() {
+	public Long getLessonId() {
 		return lessonId;
 	}
 
-	public void setLessonId(long lessonId) {
+	public void setLessonId(Long lessonId) {
 		this.lessonId = lessonId;
 	}
 
@@ -80,19 +83,19 @@ public class LessonEntity {
 		this.startDate = startDate;
 	}
 
-	public Time getStartTime() {
+	public LocalTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Time startTime) {
+	public void setStartTime(LocalTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public Time getFinishTime() {
+	public LocalTime getFinishTime() {
 		return finishTime;
 	}
 
-	public void setFinishTime(Time finishTime) {
+	public void setFinishTime(LocalTime finishTime) {
 		this.finishTime = finishTime;
 	}
 
@@ -144,13 +147,17 @@ public class LessonEntity {
 		this.deleteFlg = deleteFlg;
 	}
 
-	public long getAdminId() {
+	public Long getAdminId() {
 		return adminId;
 	}
 
-	public void setAdminId(long adminId) {
+	public void setAdminId(Long adminId) {
 		this.adminId = adminId;
 	}
+	
+	
+	
+
 	
 	
 	

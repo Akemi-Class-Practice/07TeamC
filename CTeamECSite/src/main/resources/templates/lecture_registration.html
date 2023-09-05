@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Lecture Registration</title>
-    <style>
+    <title>講座登録</title>
+    <!--<style>
         
         body {
             font-family: Arial, sans-serif;
@@ -59,34 +59,36 @@
             padding: 10px 0;
             text-align: center;
         }
-    </style>
+    </style>-->
+    <link rel="stylesheet" href="lecture_edit.css">
 </head>
 <body>
     <header>
-        <div class="user-info">
-            <p>管理者名</p>
-        </div>
-        <div class="actions">
-            <a href="lecture_registration.html">新しい講座を作成</a> | 
-            <a href="#">ログアウト</a>
-        </div>
-        <div style="clear:both;"></div>
         <h1>講座編集</h1>
+        <div class="link">
+            <p>管理者名</p>
+            <ul>
+                <a href="">講座一覧</a>
+                <a href="">講座登録</a>
+                <a href="">マイページ</a>
+                <a href="">ログアウト</a>
+            </ul>
+        </div>
     </header>
     <main>
         <div class="registration-form">
-            <form enctype="multipart/form-data">
+            <form th:action="@{/lesson/register/process}" enctype="multipart/form-data" method="post">
                 <div class="form-group">
                     <label for="courseName">講座名</label>
-                    <input type="text" id="courseName" name="courseName" required>
+                    <input type="text" id="courseName" name="lessonName" required>
                 </div>
                 <div class="form-group">
                     <label for="courseDescription">講座詳細</label>
-                    <textarea id="courseDescription" name="courseDescription" rows="5" required></textarea>
+                    <textarea id="courseDescription" name="lessonDetail" rows="5" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="courseDate">講座日</label>
-                    <input type="date" id="courseDate" name="courseDate" required>
+                    <input type="date" id="courseDate" name="startDate" required>
                 </div>
                 <div class="form-group">
                     <label for="startTime">開始時間</label>
@@ -94,22 +96,22 @@
                 </div>
                 <div class="form-group">
                     <label for="endTime">終了時間</label>
-                    <input type="time" id="endTime" name="endTime" required>
+                    <input type="time" id="endTime" name="finishTime" required>
                 </div>
                 <div class="form-group">
                     <label for="courseFee">講座費用</label>
-                    <input type="number" id="courseFee" name="courseFee" required>
+                    <input type="number" id="courseFee" name="lessonFee" required>
                 </div>
                 <div class="form-group">
                     <label for="courseImage">講座画像</label>
-                    <input type="file" id="courseImage" name="courseImage" accept="image/*" required>
+                    <input type="file" id="courseImage" name="imageName" accept="image/*" required>
                 </div>
                 <button type="submit">講座登録</button>
             </form>
         </div>
     </main>
     <footer>
-        <p>&copy; 2023 〇〇学院</p>
+        <small>COPYRIGHT&copy;2023TeamC</small>
     </footer>
 </body>
 </html>

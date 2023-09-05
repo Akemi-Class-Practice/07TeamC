@@ -2,6 +2,7 @@ package CTeam.com.ex.services;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,16 +27,18 @@ public class LessonService {
 				return lessonDao.findByadminId(adminId);
 			}
 		}
-		//ブログ記事を保存します
-		public boolean createBlogPost(LocalDate startDate,Time startTime,Time finishTime,
-				String lessonName,	String lessonDetail, int lessonFee,String imageName, LocalDate registerDate,
-				int deleteFlg,Long adminId) {
-			LessonEntity lessonList = lessonDao.findByLessonNameAndregisterDate(lessonName, registerDate);
+		
+		//講座を保存します
+		public boolean createLessonPost(LocalDate startDate,LocalTime startTime,LocalTime finishTime,
+				String lessonName,	String lessonDetail, int lessonFee,String fileName, LocalDate registerDate,
+				Long adminId) {
+			LessonEntity lessonList = lessonDao.findByLessonName(lessonName);
 			if(lessonList == null) {
-				lessonDao.save(new LessonEntity(startDate,startTime,finishTime,lessonName,lessonDetail,lessonFee,imageName,registerDate,deleteFlg, adminId));
+				lessonDao.save(new LessonEntity(startDate,startTime,finishTime,lessonName,lessonDetail,lessonFee,fileName,registerDate,0, adminId));
 				return true;
 			}else {
 				return false;
 			}
 		}
+		
 }
