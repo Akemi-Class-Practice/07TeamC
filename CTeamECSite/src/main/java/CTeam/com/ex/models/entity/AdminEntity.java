@@ -33,7 +33,9 @@ public class AdminEntity {
 	@Column(name = "register_date")
 	private LocalDate registerDate;
 	
-	
+    public AdminEntity() {
+		
+	}
 
 	public AdminEntity(String adminName, String adminEmail, String adminPassword, int deleteFlg,
 			LocalDate registerDate) {
@@ -43,9 +45,7 @@ public class AdminEntity {
 		this.deleteFlg = deleteFlg;
 		this.registerDate = registerDate;
 	}
-    public AdminEntity() {
-		
-	}
+    
 
 	public long getAdminId() {
 		return adminId;

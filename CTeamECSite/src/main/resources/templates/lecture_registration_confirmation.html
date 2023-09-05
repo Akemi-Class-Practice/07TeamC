@@ -86,8 +86,11 @@
 				<input type="hidden" name="lessonDetail" th:value="${lessonDetail}">
 				<input type="hidden" name="startDate" th:value="${startDate}">
 				<input type="hidden" name="startTime" th:value="${startTime}">
+				<input type="hidden" name="finishTime" th:value="${finishTime}">
+				<input type="hidden" name="lessonFee" th:value="${lessonFee}">
+				<input type="hidden" name="imageName" th:value="${imageName}">
                 <button class="add" type="submit">確認</button>
-                <button class="back" type="button">戻る</button>
+                <button class="back" type="button" onclick="history.back();">戻る</button>
             </form>
         </div>
 
