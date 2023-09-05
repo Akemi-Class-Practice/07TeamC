@@ -32,16 +32,20 @@ public class AdminEntity {
 	
 	@Column(name = "register_date")
 	private LocalDate registerDate;
+	
+    public AdminEntity() {
+		
+	}
 
 	public AdminEntity(String adminName, String adminEmail, String adminPassword, int deleteFlg,
 			LocalDate registerDate) {
-		
 		this.adminName = adminName;
 		this.adminEmail = adminEmail;
 		this.adminPassword = adminPassword;
 		this.deleteFlg = deleteFlg;
 		this.registerDate = registerDate;
 	}
+    
 
 	public long getAdminId() {
 		return adminId;
