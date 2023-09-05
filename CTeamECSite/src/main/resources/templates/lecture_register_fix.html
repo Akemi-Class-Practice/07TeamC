@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>講座の登録が完了しました</title>
-    <link rel="stylesheet" href="lecture_fix.css">
+    <link rel="stylesheet" th:href="@{/css/lecture_fix.css}">
 </head>
 
 <body>
     <header>
         <div class="link">
-            <p>管理者名</p>
+           <p th:text="${adminName}"></p>
             <ul>
-                <a href="">講座一覧</a>
-                <a href="">講座登録</a>
+                <a th:href="@{/lesson/list}">講座一覧</a>
+                <a th:href="@{/lesson/register}">講座登録</a>
                 <a href="">マイページ</a>
                 <a href="">ログアウト</a>
             </ul>

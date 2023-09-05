@@ -5,65 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>講座登録内容確認</title>
-    <!--<style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        header .user-info {
-            float: left;
-            padding-left: 20px;
-        }
-        header .actions {
-            float: right;
-            padding-right: 20px;
-        }
-        main {
-            padding: 20px;
-        }
-        .con-lecture {
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        input[type="button"], button {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-    </style>-->
-    <link rel="stylesheet" href="lecture_register_confirm.css">
+    <link rel="stylesheet"th:href="@{/css/lecture_register_confirm.css}">
 </head>
 
 <body>
     <header>
         <h1>講座編集</h1>
         <div class="link">
-            <p>管理者名</p>
+           <p th:text="${adminName}"></p>
             <ul>
-                <a href="">講座一覧</a>
-                <a href="">講座登録</a>
+               <a th:href="@{/lesson/list}">講座一覧</a>
+                <a th:href="@{/lesson/register}">講座登録</a>
                 <a href="">マイページ</a>
                 <a href="">ログアウト</a>
             </ul>
