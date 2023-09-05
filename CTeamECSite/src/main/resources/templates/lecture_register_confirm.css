@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+}
+header {
+    background-color: #274a78;
+    color: white;
+    text-align: center;
+    width: 100%;
+    /*ページの一番上に固定*/
+    position: fixed;
+    top: 0;
+}
+.link{
+    display: flex;
+    gap: 0 20px;
+    justify-content: right;
+    padding: 0 50px;
+}
+ul{
+    display: flex;
+    gap: 0 20px;
+    justify-content: right;
+}
+a{
+    color: silver;
+}
+footer {
+    background-color: #274a78;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    /*ページの一番下に固定*/
+    position: fixed;
+    bottom: 0;
+}
+small{
+    margin: auto;
+    color: white;
+}
+main {
+    padding: 20px;
+    margin: 210px 0;
+}
+.con-lecture {
+    border: 1px solid silver;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+button{
+    background-color: #274a78;
+    color: white;
+    cursor: pointer; /*カーソル*/
+    transition: .3s; /*なめらか変化*/
+}
+button:hover {
+    color: #274a78;
+    background-color: white;
+}
