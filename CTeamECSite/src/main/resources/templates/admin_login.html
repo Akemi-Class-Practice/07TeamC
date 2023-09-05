@@ -6,20 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-        <div>
+   <main>
+        <section>
             <h2>管理者ログイン</h2>
-            <label for="admin_name">管理者名</label><br>
-            <input type="text" id="admin_name" name="admin_name" required><br>
+            <div>
+                <form th:action="@{/admin/login/process}" method="post">
+                    <label for="adminName">管理者名</label>
+                    <input type="text" id="adminName" name="adminName" required>
 
-            <label for="admin_password">パスワード</label><br>
-            <input type="password" id="admin_password" name="admin_password" placeholder="" required><br>
-            <a href="#">パスワードを忘れた場合</a>
-            <br>
-            <input type="submit" value="ログイン" />
-            <br>
-            <a href="#">登録</a>
-        </div>
-    </form>
+                    <label for="adminPassword">パスワード</label>
+                    <input type="password" id="adminPassword" name="adminPassword" required>
+
+                    <a th:href="@{/password/reset}">パスワードを忘れた場合</a>
+
+                    <button type="submit">ログイン</button>
+                </form>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

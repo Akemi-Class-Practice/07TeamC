@@ -5,7 +5,7 @@
     box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
     background-color: rgb(192, 206, 231);
     width: 500px;
-    height: 900px;
+    height: auto;
     font-family: 'Borel', cursive;
     font-family: 'Kosugi Maru', sans-serif;
     color: #0d3652;

@@ -29,4 +29,14 @@ public class AdminService {
 		}
 		return false;
 	}
+	
+	//ログイン処理
+		public AdminEntity findByAdminNameAndAdminPassword(String adminName, String adminPassword) {
+			AdminEntity adminEntity = adminDao.findByAdminNameAndAdminPassword(adminName, adminPassword);
+		    if(adminEntity == null){
+		        return null;
+		    }else{
+		        return adminEntity;
+		    }
+		}
 }
