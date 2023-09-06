@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>講座の登録が完了しました</title>
+    <title>講座の削除が完了しました</title>
     <link rel="stylesheet" th:href="@{/css/lecture_fix.css}">
 </head>
 
@@ -13,7 +13,7 @@
         <div class="link">
            <p th:text="${adminName}"></p>
             <ul>
-                <a th:href="@{/lesson/list}">講座一覧</a>
+                 <a th:href="@{/lesson/list}">講座一覧</a>
                 <a th:href="@{/lesson/register}">講座登録</a>
                 <a href="">マイページ</a>
                 <a href="">ログアウト</a>
@@ -23,10 +23,9 @@
     <main>
         <section>
             <div>
-                <h1>講座の登録が完了しました</h1>
+                <h1>講座の削除が完了しました</h1>
             </div>
             <div>
-                <button type="button" onclick="location.href='/lesson/register'">もう一度登録</button>
                 <button type="button" onclick="location.href='/lesson/list'">講座一覧へ戻る</button>
             </div>
         </section>

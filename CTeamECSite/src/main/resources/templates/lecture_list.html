@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>講座一覧</title>
-   <link rel="stylesheet" th:href="@{/css/lecture_list.css}">
-</head>
-<body>
-    <header>
-        <div class="user-info">
-            <p th:text="${adminName}"></p>
-        </div>
-        <div class="actions">
-            <a th:href="@{/lesson/register}">新しい講座を作成</a> | 
-            <a href="#">ログアウト</a>
-        </div>
-        <div style="clear:both;"></div>
-        <h1>講座一覧</h1>
-    </header>
-    <main>
-        <!-- 例の講座 1 -->
-         <form th:action="@{/admin/login/process}" method="post">
-        <div class="lecture">
-            <div class="buttons">
-                <a href="lecture_delete.html">削除</a> | 
-                <a href="lecture_image_edit.html">画像変更</a> | 
-                <a href="lecture_edit.html">編集</a>
-            </div>
-            <h2>講座タイトル 1</h2>
-            <p>講座 1 の説明...</p>
-            <a href="#">詳細を読む</a>
-        </div>
-        
-        <!-- 例の講座 2 -->
-        <div class="lecture">
-            <div class="buttons">
-                <a href="lecture_delete.html">削除</a> | 
-                <a href="lecture_image_edit.html">画像変更</a> | 
-                <a href="lecture_edit.html">編集</a>
-            </div>
-            <h2>講座タイトル 2</h2>
-            <p>講座 2 の説明...</p>
-            <a href="#">詳細を読む</a>
-        </div>
 
-        
-    </main>
-    <footer>
-        <p>&copy; 2023 〇〇学院</p>
-    </footer>
+<head>
+	<meta charset="UTF-8">
+	<title>講座一覧</title>
+	<link rel="stylesheet" th:href="@{/css/lecture_list.css}">
+</head>
+
+<body>
+	<header>
+		<div class="link">
+			<p th:text="${adminName}"></p>
+			<ul>
+				<a th:href="@{/lesson/list}">講座一覧</a>
+				<a th:href="@{/lesson/register}">講座登録</a>
+				<a href="">マイページ</a>
+				<a href="">ログアウト</a>
+			</ul>
+
+		</div>
+	</header>
+	<main>
+		<h1>講座一覧</h1>
+		<!-- 例の講座 1 -->
+		<form th:action="@{/admin/login/process}" method="post">
+			<section>
+				<article class="lesson-topic-article" th:each="lesson:${lessonList}">
+					<div class="lecture">
+						<div class="buttons">
+							<a th:href="@{/delete/detail/{lessonId}(lessonId=${lesson.lessonId})}">削除</a> |
+							<a href="lecture_image_edit.html">画像変更</a> |
+							<a href="lecture_edit.html">編集</a>
+						</div>
+						<h2 th:text=" ${lesson.lessonName}"></h2>
+						<p th:text=" ${lesson.lessonDetail}"></p>
+						<a th:href="@{/edit/detail/{lessonId}(lessonId=${lesson.lessonId})}">詳細を読む</a>
+					</div>
+				</article>
+			</section>
+		</form>
+	</main>
+	<footer>
+		<small>COPYRIGHT&copy;2023TeamC</small>
+	</footer>
 </body>
+
 </html>
