@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+	<header>
+        <ul></ul>
+    </header>
+	
+	<main>
+        <section>
+            <h2>管理者ログイン</h2>
+            <div>
+                <form th:action="@{/admin/login/process}" method="post">
+                    <label for="adminName">管理者名</label>
+                    <input type="text" id="adminName" name="adminName" required>
+
+                    <label for="adminPassword">パスワード</label>
+                    <input type="password" id="adminPassword" name="adminPassword" required>
+
+                    <a th:href="@{/password/reset}">パスワードを忘れた場合</a>
+
+                    <button type="submit">ログイン</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <small>COPYRIGHT&copy;2023TeamC</small>
+    </footer>
+</body>
+</html>

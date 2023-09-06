@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+    <!--<style>
+        
+        header {
+            background-color: aquamarine;
+            color: aliceblue;
+            padding: 10px;
+            text-align: center;
+        }
+        h1{
+            margin: 0;
+        }
+        img{
+            width: 100px;
+            height: auto;
+        }
+
+    </style>-->
+</head>
+<header>
+    <img src="/Users/zhao.xu/Desktop/bg.jpg" alt="网站logo">
+</header>
+<body>
+     <form th:action="@{/student/login/process}" method="post">
+        <div id="container">
+            <h2>ログイン</h2>
+            <label for="studentEmail">メールアドレス</label><br>
+            <input type="text" id="studentEmail" name="studentEmail" required>
+
+            <label for="studentPassword">パスワード</label><br>
+            <input type="password" id="studentPassword" name="studentPassword" required>
+            <a class="forget_pass" th:href="@{/password}">パスワードを忘れた場合</a>
+
+            <input type="submit" value="ログイン">
+            <a th:href="@{/student/register}">登録</a>
+            <br>
+            
+        </div>
+    </form>
+    
+    <footer id="footer">
+        <p>&copy; 2023 〇〇学院</p>
+    </footer>
+</body>
+</html>

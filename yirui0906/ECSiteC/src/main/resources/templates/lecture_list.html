@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>講座一覧</title>
+	<link rel="stylesheet" th:href="@{/css/lecture_list.css}">
+
+</head>
+<body>
+    <header>
+        <div class="link">
+            <p th:text="${adminName}"></p>
+            <ul>
+				<a th:href="@{/lesson/list}">講座一覧</a>
+            	<a th:href="@{/lesson/register}">講座登録</a>
+            	<a href="">マイページ</a>
+            	<a th:href="@{/logout}">ログアウト</a>
+			</ul>
+        </div>
+        
+    </header>
+    <main>
+		<h1>講座一覧</h1>
+        <form th:action="@{/admin/login/process}" method="post">
+			<table border="2">
+				<tr>
+					<th>講座番号</th>
+					<th>講座名</th>
+					<th>講座内容</th>
+					<th>講座費用</th>
+					<th>変更</th>
+				</tr>
+				<tr th:each="lesson:${lessonList}">
+					<td th:text="${lesson.lessonId}"></td>
+					<td th:text="${lesson.lessonName}" onclick="location.href='/lesson/details'"></td>
+					<td th:text="${lesson.lessonDetail}"></td>
+					<td th:text="${lesson.lessonFee}"></td>
+					<td><a th:href="@{/lesson/edit/{lessonId}(lessonId=${lesson.lessonId})}">変更</a></td>
+				</tr>
+			</table>
+		</form>
+    </main>
+    <footer>
+        <small>COPYRIGHT&copy;2023TeamC</small>
+    </footer>
+</body>
+</html>
