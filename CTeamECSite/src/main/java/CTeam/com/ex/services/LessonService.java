@@ -1,6 +1,5 @@
 package CTeam.com.ex.services;
 
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -40,5 +39,22 @@ public class LessonService {
 				return false;
 			}
 		}
+		// lessonIdを基準でlessonDaoから内容を取得します
+		public LessonEntity getLessonPost(Long lessonId) {
+			if(lessonId == null) {
+				return null;
+			}else {
+				return lessonDao.findByLessonId(lessonId);
+			}
+		}
 		
+		// lessonIdを基づいてlessonDaoから対応の内容を削除します。
+		public boolean deleteLesson(Long lessonId) {
+			if(lessonId == null) {
+				return false;
+			}else {
+				lessonDao.deleteByLessonId(lessonId);
+				return true;
+			}
+		}
 }
