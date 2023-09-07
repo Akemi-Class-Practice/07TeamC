@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>講座登録内容削除</title>
+    <link rel="stylesheet" th:href="@{/css/lecture_delete.css}">
+</head>
+
+<body>
+    <header>
+        <h1>講座編集</h1>
+        <div class="link">
+            <p th:text="${adminName}"></p>
+            <ul>
+                <a href="">講座一覧</a>
+                <a href="">講座登録</a>
+                <a href="">マイページ</a>
+                <a href="">ログアウト</a>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div>
+            <div class="con-lecture">
+                <h3>講座情報</h3>
+                <p>講座名：<span th:text="${lessonList.lessonName}"></span></p>
+                <p>講座詳細：<span th:text="${lessonList.lessonDetail}"></span></p>
+                <p>講座日：<span th:text="${lessonList.startDate}"></span></p>
+                <p>開始時間：<span th:text="${lessonList.startTime}"></span></p>
+                <p>終了時間：<span th:text="${lessonList.finishTime}"></span></p>
+                <p>講座費用：<span th:text="${lessonList.lessonFee}"></span></p>
+                <p>講座画像：<img th:src="@{/lesson-img/{items}(items=${lessonList.imageName})}"></p>
+            </div>
+            <form th:action="@{/lesson/delete}" method="post">
+				<input type="hidden" name="lessonId" th:value="${lessonList.lessonId}">
+                <button class="add" type="submit">削除</button>
+                <button class="back" type="button">戻る</button>
+            </form>
+        </div>
+
+    </main>
+    <footer>
+        <small>COPYRIGHT&copy;2023TeamC</small>
+    </footer>
+</body>
+
+</html>
