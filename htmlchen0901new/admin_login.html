@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin_login.css}">
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <img src="/bg.jpg" alt="网站logo">
+    </header>
+    <form action="" method="post">
+        <div id="container">
+            <h2 class="login_title">管理者ログイン</h2>
+            <input type="text"  name="admin_name" class="login_ctr" placeholder="管理者名" required><br>
+            <input type="password"  name="admin_password" class="login_ctr"  placeholder="パスワード" required><br>
+            <a class="forget_pass" href="#">パスワードを忘れた場合</a>
+         
+            <input type="submit" class="btn" value="ログイン" />
+            <!--  <a href="#">登録</a> -->
+            <button class="btn">登録</button>
+        </div>
+    </form>
+    <footer id="footer">
+        <p>&copy; 2023 〇〇学院</p>
+    </footer>
+</body>
+</html>

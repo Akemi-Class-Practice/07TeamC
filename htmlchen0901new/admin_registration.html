@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/admin_registration.css}"/>
+</head>
+<body>
+    <header id="header">
+        <img src="/bg.jpg" alt="网站logo">
+    </header>
+    <div id="container">
+        <div id="form">
+            <h2 class="login_title">管理者登録</h2>
+            <form action="/admin/register/process" method="post">
+                <div class="line">
+                    <input class="login_ctr" type="text" name="adminName" value="" placeholder="ユーザー名" required/>
+                </div>
+                <div class="line">
+                    <input class="login_ctr" type="text" name="adminEmail" value="" placeholder="メールアドレス" required/>
+                </div>
+                <div class="line">
+                    <input class="login_ctr" type="password" name="adminPassword" value="" placeholder="パスワード" required/>
+                </div>
+                <input type="submit" class="btn" value="登録" />
+                <!-- <a href="#">ログイン</a> -->
+                <button class="btn">ログイン</button>
+            </form>
+        </div>
+    </div>
+    <footer id="footer">
+        <p>&copy; 2023 〇〇学院</p>
+    </footer>
+</body>
+</html>

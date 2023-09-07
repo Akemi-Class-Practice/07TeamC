@@ -57,4 +57,7 @@ public class LessonService {
 				return true;
 			}
 		}
+		public LessonEntity findByLessonId(Long lessonId) {
+			return lessonDao.findByLessonId(lessonId);
+		}
 }
