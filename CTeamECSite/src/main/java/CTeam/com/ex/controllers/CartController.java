@@ -33,7 +33,7 @@ public class CartController {
 		@GetMapping("/cart/list")
 		public String showCartList(@RequestParam Long lessonId,Model model) {
 			//StudentEntity student = null;
-			//ログインしている人の情報を首都kする
+			//ログインしている人の情報を取得する
 			StudentEntity student = (StudentEntity) session.getAttribute("student");
 			//もしログインしている人の情報が存在しなかったらログイン画面に遷移する
 			if(student == null) {
