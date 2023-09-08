@@ -13,6 +13,8 @@ public interface StudentDao extends JpaRepository<StudentEntity,Long>{
 	
 	//studentName
 	StudentEntity findByStudentName(String studentName);
+	
+	StudentEntity findByStudentEmail(String studentEmail);
 	//studentName studentPassword
 	StudentEntity findByStudentEmailAndStudentPassword(String studentEmail,String studentPassword);
 

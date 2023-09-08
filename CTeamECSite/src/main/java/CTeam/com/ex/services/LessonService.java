@@ -47,6 +47,38 @@ public class LessonService {
 				return lessonDao.findByLessonId(lessonId);
 			}
 		}
+		//更新処理
+		public boolean editLesson(Long lessonId , LocalDate startDate, LocalTime startTime, LocalTime finishTime, String lessonName,
+				String lessonDetail, int lessonFee, Long adminId) {
+			//データベースの内容を取得
+			LessonEntity lessonList = lessonDao.findByLessonId(lessonId);
+			if(lessonList == null) {
+				return false;
+			}else {
+				lessonList.setStartDate(startDate);
+				lessonList.setStartTime(startTime);
+				lessonList.setFinishTime(finishTime);
+				lessonList.setLessonName(lessonName);
+				lessonList.setLessonDetail(lessonDetail);
+				lessonList.setLessonFee(lessonFee);
+				
+				lessonDao.save(lessonList);
+				return true;
+			}
+		}
+		//lessonの画像更新処理
+		public boolean editImageLesson(Long lessonId ,String imageName, Long adminId) {
+			//データベースの内容を取得
+			LessonEntity lessonList = lessonDao.findByLessonId(lessonId);
+			if(lessonList == null) {
+				return false;
+			}else {
+				lessonList.setImageName(imageName);
+				lessonDao.save(lessonList);
+				return true;
+			}
+		}
+		
 		
 		// lessonIdを基づいてlessonDaoから対応の内容を削除します。
 		public boolean deleteLesson(Long lessonId) {
@@ -56,5 +88,9 @@ public class LessonService {
 				lessonDao.deleteByLessonId(lessonId);
 				return true;
 			}
+		}
+		
+		public LessonEntity findByLessonId(Long lessonId) {
+			return lessonDao.findByLessonId(lessonId);
 		}
 }

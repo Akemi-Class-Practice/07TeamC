@@ -33,7 +33,7 @@ public class StudentLoginController {
 			return "redirect:/student/login";
 		}else {
 			session.setAttribute("student", student);
-			return "lecture_list";
+			return "user_lecture_list.html";
 		}
 	}
 }
