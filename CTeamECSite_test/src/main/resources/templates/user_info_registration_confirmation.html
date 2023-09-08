@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー情報確認</title>
+    <link rel="stylesheet" th:href="@{/css/user_info_registration_confirmation.css}">
+</head>
+<body>
+    <header>
+        <u>ユーザー情報確認</u>
+    </header>
+    <main>
+        <form th:action="@{/student/register/process}" method="post">
+			<div id="container">
+            <label for="studentName">ユーザー名</label>
+            <input type="text" name="studentName" th:value="${studentName}">
+
+            <label for="studentEmail">メールアドレス</label>
+            <input type="text" name="studentEmail" th:value="${studentEmail}">
+
+            <label for="studentPassword">パスワード</label>
+            <input type="text" name="studentPassword" th:value="${studentPassword}">
+
+            <button class="btn" type="submit" >確認</button>
+			 <button class="btn" type="button" >修正</button>
+            </div>
+        </form>
+    </main>
+        
+</body>
+</html>

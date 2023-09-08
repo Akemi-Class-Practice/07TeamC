@@ -1,8 +1,6 @@
 package CTeam.com.ex.controllers;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import CTeam.com.ex.models.entity.LessonEntity;
 import CTeam.com.ex.models.entity.StudentEntity;
-import CTeam.com.ex.models.entity.Transaction_HistoryEntity;
-import CTeam.com.ex.models.entity.Transaction_ItemEntity;
 import CTeam.com.ex.services.LessonService;
 import CTeam.com.ex.services.StudentService;
 import CTeam.com.ex.services.Transaction_HistoryService;
@@ -39,7 +35,7 @@ public class CartController {
 	@Autowired
 	private HttpSession session;
 
-	private Long Long;
+	//private Long Long;
 
 	// 购物车一览 - CHEN
 	@GetMapping("/cart/list")
@@ -63,7 +59,6 @@ public class CartController {
 			session.setAttribute("cart", list);
 			model.addAttribute("cartList",list);
 			return "cart_list.html";
-			
 		}else {
 			//カートに２個目の商品を入れる場合
 			//既に１個目の商品の情報セッションに保存されているので、そのセッションを呼び出す必要がある
