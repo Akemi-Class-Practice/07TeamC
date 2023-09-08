@@ -12,32 +12,33 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "student")
 public class StudentEntity {
-	
+
 	@Id
 	@Column(name = "student_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long studentId;
-	
+
 	@Column(name = "student_name")
 	private String studentName;
-	
+
 	@Column(name = "student_email")
 	private String studentEmail;
-	
+
 	@Column(name = "student_password")
 	private String studentPassword;
-	
-	//0と1の　2つの状態だけある
+
+	// 0と1の 2つの状態だけある
 	@Column(name = "delete_flg")
 	private int deleteFlg;
-	
+
 	@Column(name = "register_date")
 	private LocalDate registerDate;
 
-	public StudentEntity(long studentId, String studentName, String studentEmail, String studentPassword, int deleteFlg,
+	public StudentEntity() {
+	}
+
+	public StudentEntity(String studentName, String studentEmail, String studentPassword, int deleteFlg,
 			LocalDate registerDate) {
-		
-		this.studentId = studentId;
 		this.studentName = studentName;
 		this.studentEmail = studentEmail;
 		this.studentPassword = studentPassword;
@@ -46,7 +47,6 @@ public class StudentEntity {
 	}
 
 	public StudentEntity(long studentId) {
-		
 		this.studentId = studentId;
 	}
 
@@ -97,8 +97,5 @@ public class StudentEntity {
 	public void setRegisterDate(LocalDate registerDate) {
 		this.registerDate = registerDate;
 	}
-	
-	
-	
-	
+
 }

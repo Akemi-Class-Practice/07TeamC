@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>講座画像編集</title>
+    <link rel="stylesheet" th:href="@{/css/lecture_edit.css}">
+</head>
+<body>
+    <header>
+        <h1>講座編集</h1>
+        <div class="link">
+            <p th:text="${adminName}"></p>
+            <ul>
+                <a th:href="@{/lesson/list}">講座一覧</a>
+				<a th:href="@{/lesson/register}">講座登録</a>
+				<a th:href="@{/admin/login}">ログアウト</a>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="image-edit-form">
+            <form th:action="@{/image/edit/update}" enctype="multipart/form-data" method="post">
+				 <img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}">
+                <div class="form-group">
+                   <label for="lessonImage">講座画像</label>
+                    <input type="file" id="imageName" name="imageName">
+                </div>
+                <input type="hidden" name="lessonId" th:value="${lesson.lessonId}">
+                <button type="submit">保存</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <small>COPYRIGHT&copy;2023TeamC</small>
+    </footer>
+</body>
+</html>

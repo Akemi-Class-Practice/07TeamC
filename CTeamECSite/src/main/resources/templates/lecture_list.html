@@ -13,9 +13,8 @@
 			<p th:text="${adminName}"></p>
 			<ul>
 				<a th:href="@{/lesson/list}">講座一覧</a>
-				<a th:href="@{/lesson/register}">講座登録</a>
-				<a href="">マイページ</a>
-				<a href="">ログアウト</a>
+                <a th:href="@{/lesson/register}">講座登録</a>
+                <a th:href="@{/admin/login}">ログアウト</a>
 			</ul>
 
 		</div>
@@ -29,12 +28,12 @@
 					<div class="lecture">
 						<div class="buttons">
 							<a th:href="@{/delete/detail/{lessonId}(lessonId=${lesson.lessonId})}">削除</a> |
-							<a href="lecture_image_edit.html">画像変更</a> |
-							<a href="lecture_edit.html">編集</a>
+							<a th:href="@{/imag/edit/{lessonId}(lessonId=${lesson.lessonId})}">画像変更</a> |
+							<a th:href="@{/lesson/edit/{lessonId}(lessonId=${lesson.lessonId})}">編集</a>
 						</div>
 						<h2 th:text=" ${lesson.lessonName}"></h2>
 						<p th:text=" ${lesson.lessonDetail}"></p>
-						<a th:href="@{/edit/detail/{lessonId}(lessonId=${lesson.lessonId})}">詳細を読む</a>
+						<a th:href="@{/lesson/edit/{lessonId}(lessonId=${lesson.lessonId})}">詳細を読む</a>
 					</div>
 				</article>
 			</section>

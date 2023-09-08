@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー登録</title>
+    <link rel="stylesheet" th:href="@{/css/user_info_registration.css}">
+</head>
+<body>
+	
+    <header id="header">
+    </header>	
+    <form th:action="@{/student/register/confirm}" method="post">
+        <div id="container">
+            <h2 class="login_title">ユーザー情報</h2>
+            <label for="studentName">ユーザー名</label><br>
+            <input type="text"  class="login_ctr" id="studentName" name="studentName" placeholder="ユーザー名" required><br>
+
+            <label for="studentEmail">メールアドレス</label><br>
+            <input type="text"  class="login_ctr" id="studentEmail" name="studentEmail" placeholder="メールアドレス"  required><br>
+
+            <label for="studentPassword">パスワード</label><br>
+            <input type="password"  class="login_ctr" id="studentPassword" name="studentPassword"  placeholder="パスワード"required><br>
+
+            <button class="btn" type="submit" >登録</button>
+            <button class="btn" type="button" onclick="history.back()">戻る</button>
+        </div>
+    </form>
+</body>
+</html>

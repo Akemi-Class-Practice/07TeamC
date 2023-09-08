@@ -1,0 +1,77 @@
+body,h1,h2,h3,h4,h5,h6,ul,ol,li{
+    margin: 0;
+    padding: 0;
+}
+ul,ol{
+    list-style: none;
+}
+body{
+    background-color: rgb(121, 181, 226);
+}
+#container{
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid lavender;
+    margin-top: 25px;
+    padding: 25px;
+    
+}
+
+#container input.login_ctr{
+    box-sizing: content-box;
+    width: 400px;
+    height: 30px;
+    padding: 6px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid transparent;
+    margin-bottom: 20px;
+}
+
+#container input.login_ctr:hover{
+    border-color: rgb(17, 6, 135);
+}
+
+#container .login_title{
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+#container a.forget_pass{
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+#container a.forget_pass:hover{
+    text-decoration: underline;
+    color: mediumblue;
+}
+
+#container .btn{
+    width: 150px;
+    height: 28px;
+}
+
+#header {
+    background-color:lavender;
+    color: aliceblue;
+    padding: 10px;
+    text-align: center;
+}
+
+#header>img{
+    width: 100px;
+    height: auto;
+}
+#footer {
+    background-color: lavender;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position:fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+}
