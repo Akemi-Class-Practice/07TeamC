@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/user_login.css}">
+    <title>ユーザーログイン</title>
+</head>
+<header id="header">
+</header>
+<body>
+     <form th:action="@{/student/login/process}" method="post">
+        <div id="container">
+            <h2>ログイン</h2>
+            <label for="studentEmail">メールアドレス</label>
+            <input type="text" id="studentEmail" name="studentEmail" class="login_ctr" required>
+
+            <label for="studentPassword">パスワード</label>
+            <input type="password" id="studentPassword" name="studentPassword" class="login_ctr" required>
+            
+            <a class="forget_pass" th:href="@{/password/reset}">パスワードを忘れた場合</a>
+            
+            <button type="submit" class="btn">ログイン</button>
+            <a th:href="@{/student/register}">登録</a>
+            
+        </div>
+    </form>
+</body>
+</html>

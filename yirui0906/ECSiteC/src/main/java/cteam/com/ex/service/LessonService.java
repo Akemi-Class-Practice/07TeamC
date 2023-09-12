@@ -64,6 +64,19 @@ public class LessonService {
 		}
 	}
 	
+	//lessonの画像更新処理
+	public boolean editImageLesson(Long lessonId ,String imageName, Long adminId) {
+		//データベースの内容を取得
+		LessonEntity lessonList = lessonDao.findByLessonId(lessonId);
+		if(lessonList == null) {
+			return false;
+		}else {
+			lessonList.setImageName(imageName);
+			lessonDao.save(lessonList);
+			return true;
+		}
+	}
+	
 	//講座削除処理
 	public boolean deleteLesson(Long lessonId) {
 		if(lessonId != null) {

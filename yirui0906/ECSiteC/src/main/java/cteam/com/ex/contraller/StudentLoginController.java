@@ -53,6 +53,10 @@ public class StudentLoginController {
 	public String password() {
 		return "password_change.html";
 	}
+	@PostMapping("/password/email")
+	public String passwordEmailSent(@RequestParam String userEmail,Model model) {
+		return "";
+	}
 	
 //	//logout
 //	@GetMapping("/logout")

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>講座登録内容確認</title>
+    <link rel="stylesheet"th:href="@{/css/lecture_register_confirm.css}">
+</head>
+
+<body>
+    <header>
+        <h1>講座編集</h1>
+        <div class="link">
+            <p th:text="${adminName}">管理者</p>
+            <ul>
+                <a th:href="@{/lesson/list}">講座一覧</a>
+                <a th:href="@{/lesson/register}">講座登録</a>
+                <a href="">マイページ</a>
+                <a th:href="@{/logout}">ログアウト</a>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div>
+            <div class="con-lecture">
+                <h3>講座情報</h3>
+                <p>講座名：<span th:text="${lessonName}"></span></p>
+                <p>講座詳細：<span th:text="${lessonDetail}"></span></p>
+                <p>講座日：<span th:text="${startDate}"></span></p>
+                <p>開始時間：<span th:text="${startTime}"></span></p>
+                <p>終了時間：<span th:text="${finishTime}"></span></p>
+                <p>講座費用：<span th:text="${lessonFee}"></span></p>
+                <p>講座画像：<img th:src="@{/lesson-img/{items}(items=${imageName})}"></p>
+            </div>
+            <form th:action="@{/lesson/register/process}" method="post">
+				<input type="hidden" name="lessonName" th:value="${lessonName}">
+				<input type="hidden" name="lessonDetail" th:value="${lessonDetail}">
+				<input type="hidden" name="startDate" th:value="${startDate}">
+				<input type="hidden" name="startTime" th:value="${startTime}">
+				<input type="hidden" name="finishTime" th:value="${finishTime}">
+				<input type="hidden" name="lessonFee" th:value="${lessonFee}">
+				<input type="hidden" name="imageName" th:value="${imageName}">
+                <button class="add" type="submit">確認</button>
+                <button class="back" type="button" onclick="history.back();">戻る</button>
+            </form>
+        </div>
+
+    </main>
+    <footer>
+        <small>COPYRIGHT&copy;2023TeamC</small>
+    </footer>
+</body>
+
+</html>

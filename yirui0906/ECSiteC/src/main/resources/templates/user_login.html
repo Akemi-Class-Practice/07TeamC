@@ -3,49 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login</title>
-	<link rel="stylesheet" th:href="@{/css/style.css}">
-    <!--<style>
-        
-        header {
-            background-color: aquamarine;
-            color: aliceblue;
-            padding: 10px;
-            text-align: center;
-        }
-        h1{
-            margin: 0;
-        }
-        img{
-            width: 100px;
-            height: auto;
-        }
-
-    </style>-->
+    <link rel="stylesheet" th:href="@{/css/user_login.css}">
+    <title>ユーザーログイン</title>
 </head>
-<header>
-    <img src="/Users/zhao.xu/Desktop/bg.jpg" alt="网站logo">
+<header id="header">
 </header>
 <body>
      <form th:action="@{/student/login/process}" method="post">
         <div id="container">
             <h2>ログイン</h2>
             <label for="studentEmail">メールアドレス</label><br>
-            <input type="text" id="studentEmail" name="studentEmail" required>
+            <input type="text" id="studentEmail" name="studentEmail" class="login_ctr" required><br>
 
             <label for="studentPassword">パスワード</label><br>
-            <input type="password" id="studentPassword" name="studentPassword" required>
-            <a class="forget_pass" th:href="@{/password}">パスワードを忘れた場合</a>
-
-            <input type="submit" value="ログイン">
-            <a th:href="@{/student/register}">登録</a>
+            <input type="password" id="studentPassword" name="studentPassword" class="login_ctr" placeholder="" required><br>
+            <!--<a class="forget_pass" th:action="@{/password/reset/sencode}">パスワードを忘れた場合</a>-->
+            <a th:href="@{/password}">パスワードを忘れた場合</a>
+            <br>
+            <button type="submit" class="btn">ログイン</button>
+            <a th:action="@{/student/register}">登録</a>
             <br>
             
         </div>
     </form>
-    
-    <footer id="footer">
-        <p>&copy; 2023 〇〇学院</p>
-    </footer>
 </body>
 </html>

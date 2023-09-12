@@ -1,52 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" th:href="@{/css/admin_register.css}">
+	<meta charset="UTF-8">
+	<title>管理者登録</title>
+	<link rel="stylesheet" th:href="@{/css/admin_register.css}">
 </head>
+
 <body>
-	<header>
-        <ul></ul>
-    </header>
-    
-    <main>
-        <section>
-            <div id="content">
-                <div id="form">
-                    <h1 id="title">管理者登録</h1>
-                    <form th:action="@{/admin/register/process}" method="post">
-                        <div class="line">
-                            <p class="lbl">管理者名</p>
-                            <input class="input-ctrl" type="text" name="adminName" value="" required />
-                        </div>
-
-                        <div class="line">
-                            <p class="lbl">メールアドレス</p>
-                            <input class="input-ctrl" type="text" name="adminEmail" value="" required />
-                        </div>
-
-                        <div class="line">
-                            <p class="lbl">パスワード&nbsp;&nbsp;</p>
-                            <input class="input-ctrl" type="password" name="adminPassword" value="" required />
-                        </div>
-
-                        <button type="submit">登録</button>
-
-                        <div id="bottom-txt">
-                            <p>
-                                <a th:href="@{/admin/login}">ログイン</a>
-                            </p>
-                        </div>
-                        
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-    
+	<header></header>
+	<main>
+		<section>
+			<div id="content">
+				<div id="form">
+					<h1 id="title">管理者登録</h1>
+					<form action="/admin/register/process" method="post">
+						<div class="line">
+							<p class="lbl">管理者名</p>
+							<input class="input-ctrl" type="text" name="adminName" value="" placeholder="" required />
+						</div>
+						<div class="line">
+							<p class="lbl">メールアドレス</p>
+							<input class="input-ctrl" type="text" name="adminEmail" value="" placeholder="" required />
+						</div>
+						<div class="line">
+							<p class="lbl">パスワード&nbsp;&nbsp;</p>
+							<input class="input-ctrl" type="password" name="adminPassword" value="" placeholder=""
+								required />
+						</div>
+						<button type="submit">登録</button>
+						<div id="bottom-txt">
+							<p>
+								<a th:href="@{/admin/login}">ログイン</a>
+							</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
 	<footer>
-        <small>COPYRIGHT&copy;2023TeamC</small>
-    </footer>
+		<small>COPYRIGHT&copy;2023TeamC</small>
+	</footer>
 </body>
+
 </html>

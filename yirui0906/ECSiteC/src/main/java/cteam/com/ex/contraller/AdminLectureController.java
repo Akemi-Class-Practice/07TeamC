@@ -1,5 +1,6 @@
 package cteam.com.ex.contraller;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
@@ -135,18 +136,57 @@ public class AdminLectureController {
 			@RequestParam int lessonFee,
 			Model model) {
 		AdminEntity admin = (AdminEntity) session.getAttribute("admin");
-//		if(admin == null) {
-//			return "redirect:/admin/login";
-//		}else {
-//			
-//		}
 		Long adminId = admin.getAdminId();
 		lessonService.editLesson(lessonId, startDate, startTime, finishTime, lessonName, lessonDetail, lessonFee,adminId);
 		model.addAttribute("lessonId",lessonId);
 		return "lecture_edit_completed";
 	}
 	
-	//削除処理
+	//講座画像更新画面取得
+	@GetMapping("/imag/edit/{lessonId}")
+	public String GetImageEditPage(@PathVariable Long lessonId,Model model) {
+		//ログインしてるadmin情報を取得する
+		AdminEntity admin = (AdminEntity) session.getAttribute("admin");
+		String loginAdminName = admin.getAdminName();
+		if(admin == null) {
+			return "redirect:/admin/login";
+		}else {
+			LessonEntity lessonList = lessonService.findByLessonId(lessonId);
+			if(lessonList != null) {
+				model.addAttribute("loginAdminName",loginAdminName);
+				model.addAttribute("lesson",lessonList);
+				return "lecture_image_edit.html";
+			}else {
+				return "";
+			}
+		}
+	}
+	
+	//講座画像更新処理
+	@PostMapping("/image/edit/update")
+	public String editImage(@RequestParam Long lessonId,
+			@RequestParam("imageName") MultipartFile imageName,
+			Model model) {
+		AdminEntity admin = (AdminEntity) session.getAttribute("admin");
+		Long adminId = admin.getAdminId();
+		if(admin != null) {
+			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date()) + imageName.getOriginalFilename();
+			try {
+				Files.copy(imageName.getInputStream(), Path.of("src/main/resources/static/lesson-img/" + fileName));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if(lessonService.editImageLesson(lessonId, fileName, adminId)) {
+				model.addAttribute("lessonId",lessonId);
+				return "lecture_edit_completed";
+			}
+		}
+		return null;
+		
+	}	
+	
+	//削除処理画面取得
 	@GetMapping("/delete/detail/{lessonId}")
 	public String getLessonDeleteDetailPage(@PathVariable Long lessonId,Model model) {
 		// admin情報を取得

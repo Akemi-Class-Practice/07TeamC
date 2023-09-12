@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register Confirm</title>
+	<link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+
+<body>
+	<header>
+        <ul></ul>
+    </header>
+    
+    <main>
+        <section>
+            <h1>Confirmation</h1>
+
+            <p>名前: <span th:text="${session.adminName}"></span></p>
+            <p>メールアドレス: <span th:text="${session.adminEmail}"></span></p>
+            
+            <form th:action="@{/admin/register/process/confirm}" method="post">
+                <button type="submit">確認</button>
+            </form>
+        </section>
+    </main>
+    
+	<footer>
+        <small>COPYRIGHT&copy;2023TeamC</small>
+    </footer>
+</body>
+
+</html>

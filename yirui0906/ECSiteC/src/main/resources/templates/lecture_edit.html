@@ -1,112 +1,61 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>講座編集</title>
-    <!--<style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        header .user-info {
-            float: left;
-            padding-left: 20px;
-        }
-        header .actions {
-            float: right;
-            padding-right: 20px;
-        }
-        main {
-            padding: 20px;
-        }
-        .registration-form {
-            border: 1px solid #ccc;
-            padding: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-    </style>-->
+	<meta charset="UTF-8">
+	<title>講座編集</title>
+	<link rel="stylesheet" th:href="@{/css/lecture_edit.css}">
 </head>
+
 <body>
-    <header>
-        <div class="user-info">
-            <p th:text="${adminName}">管理者</p>
-        </div>
-        <div class="actions">
-            <a th:href="@{/lesson/register}">新しい講座を作成</a>
-            <a th:href="@{/logout}">ログアウト</a>
-        </div>
-        <div style="clear:both;"></div>
-        <h1>講座編集</h1>
-    </header>
-    <main>
-        <div class="registration-form">
-            <form th:action="@{/edit/update}" method="post">
-                <div class="form-group">
-                    <label for="courseName">講座名</label>
-                    <input type="text" id="lessonName" name="lessonName" th:value="${lesson.lessonName}" required>
-                </div>
-                <div class="form-group">
-                    <label for="courseDescription">講座詳細</label>
-                    <textarea id="lessonDetail" name="lessonDetail" rows="5" th:text="${lesson.lessonDetail}" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="courseDate">講座日</label>
-                    <input type="date" id="startDate" name="startDate" th:value="${lesson.startDate}" required>
-                </div>
-                <div class="form-group">
-                    <label for="startTime">開始時間</label>
-                    <input type="time" id="startTime" name="startTime" th:value="${lesson.startTime}" required>
-                </div>
-                <div class="form-group">
-                    <label for="endTime">終了時間</label>
-                    <input type="time" id="finishTime" name="finishTime" th:value="${lesson.finishTime}" required>
-                </div>
-                <div class="form-group">
-                    <label for="courseFee">講座費用</label>
-                    <input type="number" id="lessonFee" name="lessonFee" th:value="${lesson.lessonFee}" required>
-                </div>
-                
-                <input type="hidden" name="lessonId" th:value="${lesson.lessonId}">
-                <button type="submit">編集確定</button>
-            </form>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2023 〇〇学院</p>
-    </footer>
+	<header>
+		<h1>講座編集</h1>
+		<div class="link">
+			<p th:text="${adminName}"></p>
+			<ul>
+				<a th:href="@{/lesson/list}">講座一覧</a>
+				<a th:href="@{/lesson/register}">講座登録</a>
+				<a th:href="@{/admin/login}">ログアウト</a>
+			</ul>
+		</div>
+	</header>
+	<main>
+		<div class="registration-form">
+			<form th:action="@{/edit/update}" method="post">
+				<div class="form-group">
+					<label for="lessonName">講座名</label>
+					<input type="text" id="lessonName" name="lessonName" th:value="${lesson.lessonName}" required>
+				</div>
+				<div class="form-group">
+					<label for="lessonDetail">講座詳細</label>
+					<textarea id="lessonDetail" name="lessonDetail" rows="5" th:text="${lesson.lessonDetail}"
+						required></textarea>
+				</div>
+				<div class="form-group">
+					<label for="startDate">講座日</label>
+					<input type="date" id="startDate" name="startDate" th:value="${lesson.startDate}" required>
+				</div>
+				<div class="form-group">
+					<label for="startTime">開始時間</label>
+					<input type="time" id="startTime" name="startTime" th:value="${lesson.startTime}" required>
+				</div>
+				<div class="form-group">
+					<label for="finishTime">終了時間</label>
+					<input type="time" id="finishTime" name="finishTime" th:value="${lesson.finishTime}" required>
+				</div>
+				<div class="form-group">
+					<label for="lessonFee">講座費用</label>
+					<input type="number" id="lessonFee" name="lessonFee" th:value="${lesson.lessonFee}" required>
+				</div>
+				<input type="hidden" name="lessonId" th:value="${lesson.lessonId}">
+				<button type="submit">編集確定</button>
+				<button class="back" type="button" onclick="history.back();">戻る</button>
+			</form>
+		</div>
+	</main>
+	<footer>
+		<small>COPYRIGHT&copy;2023TeamC</small>
+	</footer>
 </body>
+
 </html>

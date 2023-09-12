@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>ユーザー情報確認</title>
+    <link rel="stylesheet" th:href="@{/css/user_info_registration_confirmation.css}">
 </head>
 <body>
     <header>
@@ -12,7 +12,7 @@
     </header>
     <main>
         <form th:action="@{/student/register/process}" method="post">
-			
+			<div id="container">
             <label for="studentName">ユーザー名</label>
             <input type="text" name="studentName" th:value="${studentName}">
 
@@ -22,19 +22,11 @@
             <label for="studentPassword">パスワード</label>
             <input type="text" name="studentPassword" th:value="${studentPassword}">
 
-            <input type="submit" value="確認">
-
+            <button class="btn" type="submit" >確認</button>
+			 <button class="btn" type="button" >修正</button>
+            </div>
         </form>
     </main>
-
-        <div>
-            <p>
-                <input type="button" value="修正" /><!--戻る-->
-            </p>
-        </div>
         
-		<footer id="footer">
-            <p>&copy; 2023 〇〇学院</p>
-        </footer>
 </body>
 </html>

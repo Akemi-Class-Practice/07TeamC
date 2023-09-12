@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lecture Edit</title>
-    <link rel="stylesheet" href="lecture_fix.css">
+    <link rel="stylesheet" th:href="@{/css/lecture_fix.css}">
 </head>
 
 <body>
@@ -18,8 +18,8 @@
                 <h1>講座の変更が完了しました</h1>
             </div>
             <div>
-                <button type="submit">講座変更を続ける</button>
-                <button type="submit" onclick="history.back">講座一覧へ戻る</button>
+                <button onclick="history.back();">講座変更を続ける</button>
+                <button onclick="location.href='/lesson/list'">講座一覧へ戻る</button>
             </div>
         </section>
     </main>
