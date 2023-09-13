@@ -53,6 +53,7 @@ public class AdminRegisterController {
         session.setAttribute("adminPassword", adminPassword);
         
         if (adminService.createAdmin(adminName, adminEmail,adminPassword)) {
+        	session.invalidate();
             return "redirect:/admin/login"; 
         } else {
             return "redirect:/admin/register";

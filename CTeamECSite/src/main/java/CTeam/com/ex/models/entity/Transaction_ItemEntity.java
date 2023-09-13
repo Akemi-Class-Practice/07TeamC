@@ -22,8 +22,7 @@ public class Transaction_ItemEntity {
 	@Column(name = "transaction_id")
 	private Long transactionId;
 
-	public Transaction_ItemEntity(long id, long lessonId, long transactionId) {
-		this.id = id;
+	public Transaction_ItemEntity(Long lessonId, Long transactionId) {
 		this.lessonId = lessonId;
 		this.transactionId = transactionId;
 	}
