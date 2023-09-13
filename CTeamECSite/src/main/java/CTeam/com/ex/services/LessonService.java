@@ -1,7 +1,10 @@
 package CTeam.com.ex.services;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,5 +95,24 @@ public class LessonService {
 		
 		public LessonEntity findByLessonId(Long lessonId) {
 			return lessonDao.findByLessonId(lessonId);
+		}
+		
+		//ユーザー側一覧表示
+		public List<LessonEntity>findActiveAllLesson(){
+			LocalTime now = LocalTime.now();
+			LocalDateTime dateTimeNow = LocalDateTime.now();
+			List<LessonEntity>list = lessonDao.findAll();
+			List<LessonEntity>reList = new LinkedList<LessonEntity>();
+			Iterator<LessonEntity>ite = list.iterator();
+			while(ite.hasNext()) {
+				LessonEntity lesson = ite.next();
+				LocalDateTime localDateTime = LocalDateTime.of(lesson.getStartDate(),lesson.getStartTime());
+				if (dateTimeNow.compareTo(localDateTime)>0) {
+					
+				}else {
+					reList.add(lesson);
+				}
+			}
+			return reList;
 		}
 }
