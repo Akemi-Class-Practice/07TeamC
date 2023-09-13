@@ -22,6 +22,7 @@ public class SubscriptionEntity {
 	@Id
 	@Column(name = "transaction_id")
 	private Long transactionId;
+	
 	@Column(name = "start_date")
 	private LocalDate startDate;
 	

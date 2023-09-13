@@ -11,6 +11,7 @@ public interface StudentDao extends JpaRepository<StudentEntity,Long>{
 	//StudentEntityを引数として受け取ってStudentEntityの内容を保存した結果を返す
 	StudentEntity save(StudentEntity studentEntity);
 	
+	StudentEntity findByStudentId(Long studentId);
 	//studentName
 	StudentEntity findByStudentName(String studentName);
 	
