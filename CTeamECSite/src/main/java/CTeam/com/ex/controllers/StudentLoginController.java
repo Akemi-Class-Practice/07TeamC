@@ -39,7 +39,7 @@ public class StudentLoginController {
 			model.addAttribute("loginName",LoginName);
 			String url = (String) session.getAttribute("goLogin");
 			if(url == null) {
-				return "lecture_list.html";
+				return "user_lecture_list.html";
 			}else {
 				return "redirect"+url;
 			}
@@ -66,5 +66,11 @@ public class StudentLoginController {
 				return "password_change.html";		
 			
 		}
+	}
+		//logout
+       @GetMapping("/logout")
+	public String userLogout(){
+		session.invalidate();
+		return "redirect:/student/login";
 	}
 }

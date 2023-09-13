@@ -21,7 +21,7 @@
     <header class="header">
         <div class="header-menu" >
             <ul>
-                <li>ユーザー名</li>
+                <li th:text="${studentName}"></li>
                 <li>ホーム</li>
                 <li>カート</li>
                 <li>マイページ</li>
@@ -44,7 +44,7 @@
                 <p th:text="${lesson.lessonDetail}"></p>
                  <input type="hidden" th:value="${lesson.lessonId}" name="lessonId">
                 <form th:action="@{/lesson/cart/all}" method="post">
-                <button class="cart-add" type="submit">カートに入れる</button>
+                <button class="cart-add" type="submit" >カートに入れる</button>
                 <button class="cart-back" type="button"　onclick="history.back();">戻る</button>
                  </form>
             </div>

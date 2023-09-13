@@ -18,6 +18,8 @@ import CTeam.com.ex.models.entity.StudentEntity;
 import CTeam.com.ex.models.entity.SubscriptionEntity;
 import CTeam.com.ex.services.LessonService;
 import CTeam.com.ex.services.SubscriptionService;
+import CTeam.com.ex.services.TransactionHistoryService;
+import CTeam.com.ex.services.TransactionItemService;
 import jakarta.servlet.http.HttpSession;
 
 @RequestMapping("/user")
@@ -29,10 +31,26 @@ public class UserLectureController {
 
 	@Autowired
 	HttpSession session;
+	
+	@Autowired
+	TransactionHistoryService transactionHistoryService;
+	
+	@Autowired
+	TransactionItemService transactionItemService;
 
 	@Autowired
 	SubscriptionService subscriptionService;
+	
+	@GetMapping("/menu")
+	public String getLessonMenuPage(Model model) {
+		List<LessonEntity> lessonList = lessonService.findActiveAllLesson();
+		model.addAttribute("lessonList",lessonList);
+		model.addAttribute("loginFlg",false);
+		model.addAttribute("userName",null);
+		return"user_lecture_list.html";
+	}
 
+	
 	// 講座詳細画面を表示処理
 	@GetMapping("/lesson/detail/{lessonId}")
 	public String getLessonDetailPage(@PathVariable Long lessonId, Model model) {

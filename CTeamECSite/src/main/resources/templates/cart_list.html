@@ -13,15 +13,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Kosugi+Maru&display=swap" rel="stylesheet">
     <title>カート</title>
-    <link rel="stylesheet" href="user_header.css">
-    <link rel="stylesheet" href="user_style.css">
+    <link rel="stylesheet" th:href="@{/css/user_header.css}">
+    <link rel="stylesheet" th:href="@{/css/user_style.css}">
 </head>
 
 <body>
     <header>
         <div class="header-menu">
             <ul>
-                <li>ユーザー名</li>
+                <li th:text="${studentName}"></li>
                 <li>ホーム</li>
                 <li>カート</li>
                 <li>マイページ</li>
@@ -33,26 +33,22 @@
         </div>
     </header>
     <main>
-        <form action="" method="post">
+        <form th:action="@{user/cart/list}" method="post">
             <div class="cart">
                 <h2>カート</h2>
                 <section>
                     <ul class="cart-item-list">
-                        <li class="cart-item">
-                            <img src="IMG_6819.jpg" alt="商品1" class="cartimg">
-                            <h4 class="cart-item-title">商品1</h4>
-                            <p class="cart-item-price">12000円</p>
-                            <div class="cart-item-quantity">
-                                <button class="cart-quantity-btn">-</button>
-                                <span class="cart-quantity">1</span>
-                                <button class="cart-quantity-btn">+</button>
-                            </div>
-                            <button class="cart-item-delete">删除</button>
+                        <li class="cart-item" th:each="lesson:${list}">
+							<div>
+                            <img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}" class="cartimg">
+                            <h4 class="cart-item-title" th:text="${lesson.lessonName}"></h4>
+                            <p class="cart-item-price" th:text="${#temporals.format(lesson.startDate, 'yyyy/MM/dd')}+'('+${#temporals.dayOfWeekName(lesson.startDate)}+')'+${#temporals.format(lesson.startTime, 'HH:mm')}+'-'+${#temporals.format(lesson.finishTime, 'HH:mm')}"></p>
+                           </div>
+                            <button class="cart-item-delete" th:attr="onClick='location.href=\''+'/lesson/cart/delete/'+${lesson.lessonId}+'\''">削除</button>
                         </li>
                     </ul>
                     <div class="cart-summary">
-                        <p class="cart-summary-total">合计：<strong>12000円</strong></p>
-                        <button class="cart-summary-submit">会計</button>
+                        <button class="cart-summary-submit"　onclick="location.href='/payment_selection'">購入</button>
                         <button class="cart-back">戻る</button>
                     </div>
                 </section>
