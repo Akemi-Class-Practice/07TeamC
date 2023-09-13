@@ -2,23 +2,37 @@ package CTeam.com.ex.models.entity;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Entity;
+
 
 
 public class KeyEntity implements Serializable{
     private Long lessonId;
-    private Long transcationId;
+    private Long transactionId;
+    
+	
 	public Long getLessonId() {
 		return lessonId;
 	}
+
 	public void setLessonId(Long lessonId) {
 		this.lessonId = lessonId;
 	}
-	public Long getTranscationId() {
-		return transcationId;
+
+	public Long getTransactionId() {
+		return transactionId;
 	}
-	public void setTranscationId(Long transcationId) {
-		this.transcationId = transcationId;
+
+	public void setTransactionId(Long transactionId) {
+		this.transactionId = transactionId;
 	}
-    
+
+	public KeyEntity(Long lessonId, Long transactionId) {
+		this.lessonId = lessonId;
+		this.transactionId = transactionId;
+	}
+
+	public KeyEntity() {
+	}
+
+	
 }

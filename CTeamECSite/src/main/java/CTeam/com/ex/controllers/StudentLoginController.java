@@ -28,12 +28,43 @@ public class StudentLoginController {
 	public String login(@RequestParam String studentEmail,
 			@RequestParam String studentPassword,
 			Model model) {
-		StudentEntity student = studentService.loginCheck(studentEmail, studentPassword);
-		if(student == null) {
+		StudentEntity studentEntity = studentService.loginCheck(studentEmail, studentPassword);
+		if(studentEntity == null) {
 			return "redirect:/student/login";
 		}else {
-			session.setAttribute("student", student);
-			return "user_lecture_list.html";
+			session.setAttribute("student", studentEntity);
+			//ユーザー情報を取得する
+			StudentEntity student = (StudentEntity) session.getAttribute("student");
+			String LoginName = student.getStudentName();
+			model.addAttribute("loginName",LoginName);
+			String url = (String) session.getAttribute("goLogin");
+			if(url == null) {
+				return "lecture_list.html";
+			}else {
+				return "redirect"+url;
+			}
+		}
+	}
+	
+	//パスワード変更画面
+	@GetMapping("/student/password/change")
+	public String getPasswordChangePage(Model model) {
+		//AdminEntity password = adminService.findByAdminId(adminId);
+		//model.addAttribute("newPassword",password);
+		return "password_change.html";
+	}
+	//パスワード変更処理
+		@PostMapping("/student/password/change/complete")
+		public String getPasswordChangeComplete(@RequestParam String password, 
+				@RequestParam String passwordConfirm, 
+				Model model) {
+			String email = (String) session.getAttribute("email");
+			if(password.equals(passwordConfirm)) {
+				studentService.updatePassword(email, password);
+				return "password_change_completed.html";
+			}else {
+				return "password_change.html";		
+			
 		}
 	}
 }
