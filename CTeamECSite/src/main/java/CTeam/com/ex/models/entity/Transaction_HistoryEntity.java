@@ -1,6 +1,7 @@
 package CTeam.com.ex.models.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,26 +26,26 @@ public class Transaction_HistoryEntity {
 	private int amount;
 	
 	@Column(name = "transaction_date")
-	private LocalDate transactionDate;
+	private LocalDateTime transactionDate;
 
-	public Transaction_HistoryEntity(long transactionId, long studentId, int amount, LocalDate transactionDate) {
+	public Transaction_HistoryEntity(Long transactionId, Long studentId, int amount, LocalDateTime transactionDate) {
 		this.transactionId = transactionId;
 		this.studentId = studentId;
 		this.amount = amount;
 		this.transactionDate = transactionDate;
 	}
 
-	public Transaction_HistoryEntity(long transactionId, long studentId, int amount) {
-		this.transactionId = transactionId;
+	public Transaction_HistoryEntity( Long studentId, int amount, LocalDateTime transactionDate) {
 		this.studentId = studentId;
 		this.amount = amount;
+		this.transactionDate = transactionDate;
 	}
 
 	public long getTransactionId() {
 		return transactionId;
 	}
 
-	public void setTransactionId(long transactionId) {
+	public void setTransactionId(Long transactionId) {
 		this.transactionId = transactionId;
 	}
 
@@ -64,11 +65,11 @@ public class Transaction_HistoryEntity {
 		this.amount = amount;
 	}
 
-	public LocalDate getTransactionDate() {
+	public LocalDateTime getTransactionDate() {
 		return transactionDate;
 	}
 
-	public void setTransactionDate(LocalDate transactionDate) {
+	public void setTransactionDate(LocalDateTime transactionDate) {
 		this.transactionDate = transactionDate;
 	}
 	
