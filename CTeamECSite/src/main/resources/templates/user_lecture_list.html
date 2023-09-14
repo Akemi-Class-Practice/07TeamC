@@ -20,21 +20,21 @@
 <body>
 	<header>
 		<header class="header">
-			<div class="header-menu" 　th:if="${loginFlg}">
+			<div class="header-menu" th:if="${loginFlg}">
 				<ul>
-					<li th:text="${studentName}"></li>
-					<li>ホーム</li>
-					<li>カート</li>
-					<li>マイページ</li>
+					<li th:text="${userName}"></li>
+					<li><a th:href="@{/user/menu}">ホーム</a></li>
+					<li><a th:href="@{/user/show/cart}">カート</a></li>
+					<li><a th:href="@{/user/mypage}">マイページ</a></li>
 					<li>ログアウト</li>
 				</ul>
 			</div>
-			<div class="header-menu" 　th:if="${!loginFlg}">
+			<div class="header-menu" th:if="${!loginFlg}">
 				<ul>
 					<li>ホーム</li>
 					<li>カート</li>
 					<li>マイページ</li>
-					<li>ログイン</li>
+					<li><a th:href="@{/student/login}">ログイン</li>
 				</ul>
 			</div>
 			<div>
@@ -43,19 +43,26 @@
 		</header>
 	</header>
 	<main>
-		<form action="" method="post">
-			<section class="lecture-list-section">
-				<h2>講座一覧</h2>
-				<div class="lecture-list-flex">
-					<article class="lecture-topic-article">
-						<a href="#" class="lecture-colum">
-							<img src="IMG_6819.jpg" alt="">
-							<img src="IMG_6819.jpg" alt="">
-						</a>
-					</article>
-				</div>
-			</section>
-		</form>
+		<section class="lecture-list-section">
+			<h2>講座一覧</h2>
+			<div class="lecture-list-flex">
+				<article class="lecture-topic-article" th:each="lesson:${lessonList}">
+							<a th:href="@{/user/lesson/detail/{lessonId}(lessonId=${lesson.lessonId})}">
+								<img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}">
+								<h4 th:text="${lesson.lessonName}"></h4>
+								<p
+									th:text="${#temporals.format(lesson.startDate, 'yyyy/MM/dd')}+'('+${#temporals.dayOfWeekName(lesson.startDate)}+')'">
+								</p>
+								<p
+									th:text="${#temporals.format(lesson.startTime, 'HH:mm')}+'-'+${#temporals.format(lesson.finishTime, 'HH:mm')}">
+								</p>
+								<p th:text="${lesson.lessonFee}"></p>
+								<p th:text="${lesson.lessonDetail}"></p>
+								<input type="hidden" th:value="${lesson.lessonId}" name="lessonId">
+							</a>
+				</article>
+			</div>
+		</section>
 	</main>
 	<footer>
 		<p class="foot"> Copyright &copy; 2023 </p>
