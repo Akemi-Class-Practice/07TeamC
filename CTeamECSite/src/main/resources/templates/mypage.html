@@ -19,21 +19,29 @@
 
 <body>
     <header class="header">
-        <div class="header-menu">
-            <ul>
-                <li th:text="${studentName}">ユーザー名</li>
-                <li>ホーム</li>
-                <li>カート</li>
-                <li>マイページ</li>
-                <li>ログアウト</li>
-            </ul>
-        </div>
+       <div class="header-menu" th:if="${loginFlg}">
+				<ul>
+					<li th:text="${userName}"></li>
+					<li><a th:href="@{/user/menu}">ホーム</a></li>
+					<li><a th:href="@{/user/cart/list}">カート</a></li>
+					<li><a th:href="@{/user/mypage}">マイページ</a></li>
+					<li>ログアウト</li>
+				</ul>
+			</div>
+			<div class="header-menu" th:if="${!loginFlg}">
+				<ul>
+					<li>ホーム</li>
+					<li>カート</li>
+					<li>マイページ</li>
+					<li><a th:href="@{/student/login}">ログイン</li>
+				</ul>
+			</div>
         <div>
             <h3 class="title">Lecture</h3>
         </div>
     </header>
     <main>
-        <form action="" method="post">
+        <form th:action="@{/user/mypage}" method="post">
             <div class="mypage">
                 <h2>マイページ</h2>
                 <div class="user-information">

@@ -19,21 +19,28 @@
 
 <body>
     <header>
-        <div class="header-menu">
-            <ul>
-                <li th:text="${studentName}"></li>
-                <li>ホーム</li>
-                <li>カート</li>
-                <li>マイページ</li>
-                <li>ログアウト</li>
-            </ul>
-        </div>
+         <div class="header-menu" th:if="${loginFlg}">
+				<ul>
+					<li th:text="${userName}"></li>
+					<li><a th:href="@{/user/menu}">ホーム</a></li>
+					<li><a th:href="@{/user/show/cart}">カート</a></li>
+					<li><a th:href="@{/user/mypage}">マイページ</a></li>
+					<li>ログアウト</li>
+				</ul>
+			</div>
+			<div class="header-menu" th:if="${!loginFlg}">
+				<ul>
+					<li>ホーム</li>
+					<li>カート</li>
+					<li>マイページ</li>
+					<li><a th:href="@{/student/login}">ログイン</li>
+				</ul>
+			</div>
         <div>
             <h3 class="title">Lecture</h3>
         </div>
     </header>
     <main>
-        <form th:action="@{user/cart/list}" method="post">
             <div class="cart">
                 <h2>カート</h2>
                 <section>
@@ -44,16 +51,16 @@
                             <h4 class="cart-item-title" th:text="${lesson.lessonName}"></h4>
                             <p class="cart-item-price" th:text="${#temporals.format(lesson.startDate, 'yyyy/MM/dd')}+'('+${#temporals.dayOfWeekName(lesson.startDate)}+')'+${#temporals.format(lesson.startTime, 'HH:mm')}+'-'+${#temporals.format(lesson.finishTime, 'HH:mm')}"></p>
                            </div>
-                            <button class="cart-item-delete" th:attr="onClick='location.href=\''+'/lesson/cart/delete/'+${lesson.lessonId}+'\''">削除</button>
+                            <button class="cart-item-delete" th:attr="onClick='location.href=\''+'/user/cart/delete/'+${lesson.lessonId}+'\''">削除</button>
                         </li>
                     </ul>
+                    
                     <div class="cart-summary">
                         <button class="cart-summary-submit"　onclick="location.href='/payment_selection'">購入</button>
-                        <button class="cart-back">戻る</button>
+                        <button class="cart-back" onclick="history.back();">戻る</button>
                     </div>
                 </section>
             </div>
-        </form>
     </main>
     <footer>
         <p class="foot"> Copyright &copy; 2023 </p>

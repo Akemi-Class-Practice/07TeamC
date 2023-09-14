@@ -45,8 +45,8 @@ public class UserLectureController {
 	public String getLessonMenuPage(Model model) {
 		List<LessonEntity> lessonList = lessonService.findActiveAllLesson();
 		model.addAttribute("lessonList",lessonList);
-		model.addAttribute("loginFlg",false);
-		model.addAttribute("userName",null);
+		model.addAttribute("loginFlg",loginCheck());
+		model.addAttribute("userName",loginUserName());
 		return"user_lecture_list.html";
 	}
 
@@ -56,7 +56,7 @@ public class UserLectureController {
 	public String getLessonDetailPage(@PathVariable Long lessonId, Model model) {
 		LessonEntity lesson = lessonService.findByLessonId(lessonId);
 		model.addAttribute("lesson", lesson);
-		model.addAttribute("loginFig", loginCheck());
+		model.addAttribute("loginFlg", loginCheck());
 		model.addAttribute("userName", loginUserName());
 		return "lecture_details.html";
 	}
@@ -108,7 +108,7 @@ public class UserLectureController {
 			Long studentId = student.getStudentId();
 			List<SubscriptionEntity> listSub = subscriptionService.getPurchaseHistory(studentId);
 			model.addAttribute("listSub", listSub);
-			model.addAttribute("loginFig", loginCheck());
+			model.addAttribute("loginFlg", loginCheck());
 			model.addAttribute("userName", student.getStudentName());
 			return "mypage.html";
 		}
@@ -117,7 +117,7 @@ public class UserLectureController {
 	
 	// カート一覧
 	@PostMapping("/cart/list")
-	public String getCartListPage(@RequestParam Long lessonId, Model model) {
+	public String addCartPage(@RequestParam Long lessonId, Model model) {
 		// StudentEntity student = null;
 		// ログインしている人の情報を取得する
 		StudentEntity student = (StudentEntity) session.getAttribute("student");
@@ -135,8 +135,8 @@ public class UserLectureController {
 			// カートの内容をセッションで保持していつでも閲覧することができるように
 			// 変数listの内容をセットする
 			session.setAttribute("cart", list);
-			model.addAttribute("cartList", list);
-			model.addAttribute("loginFig", loginCheck());
+			model.addAttribute("list", list);
+			model.addAttribute("loginFlg", loginCheck());
 			model.addAttribute("userName",loginUserName());
 			return "cart_list.html";
 		} else {
@@ -147,12 +147,25 @@ public class UserLectureController {
 			LessonEntity lessons = lessonService.findByLessonId(lessonId);
 			// 変数listに新たな商品情報を追加する
 			list.add(lessons);
-			model.addAttribute("cartList", list);
-			model.addAttribute("loginFig", loginCheck());
+			model.addAttribute("list", list);
+			model.addAttribute("loginFlg", loginCheck());
 			model.addAttribute("userName",loginUserName());
 			return "cart_list.html";
 
 		}
+	}
+	@GetMapping("/show/cart")
+	public String getShowCartPage(Model model) {
+		if(session.getAttribute("cart")==null) {
+			LinkedList<LessonEntity>list = new LinkedList<LessonEntity>();
+			model.addAttribute("list",list);
+		}else {
+			LinkedList<LessonEntity>list = (LinkedList<LessonEntity>)session.getAttribute("cart");
+			model.addAttribute("list",list);
+		}
+		model.addAttribute("loginFlg",loginCheck());
+		model.addAttribute("userName",loginUserName());
+		return "cart_list.html";
 	}
 	
 	@GetMapping("/cart/delete/{lessonId}")
@@ -168,6 +181,6 @@ public class UserLectureController {
 			idx++;
 		}
 		list.remove(idx);
-		return"redirect:/user/cart/list";
+		return"redirect:/user/show/cart";
 	}
 }
