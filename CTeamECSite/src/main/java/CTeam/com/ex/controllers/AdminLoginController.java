@@ -16,6 +16,7 @@ public class AdminLoginController {
 	private AdminService adminService;
 	@Autowired
 	private HttpSession session;
+	    
 	 @PostMapping("/admin/login/process")
 		public String getAdminLoginProcessPage(@RequestParam String adminName,
 				@RequestParam String adminPassword,
@@ -26,7 +27,7 @@ public class AdminLoginController {
 			}else {
 				session.setAttribute("admin", adminEntity);
 				return "redirect:/lesson/list";
-				
+			}
+		}
 }
-	 }
-}
+
