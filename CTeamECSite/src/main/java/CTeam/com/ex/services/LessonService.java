@@ -99,7 +99,8 @@ public class LessonService {
 		
 		//ユーザー側一覧表示
 		public List<LessonEntity>findActiveAllLesson(){
-			LocalTime now = LocalTime.now();
+			//LocalTime now = LocalTime.now();
+			//本日の日付けと時間
 			LocalDateTime dateTimeNow = LocalDateTime.now();
 			List<LessonEntity>list = lessonDao.findAll();
 			List<LessonEntity>reList = new LinkedList<LessonEntity>();

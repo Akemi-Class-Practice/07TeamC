@@ -25,7 +25,7 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/user")
 
 @Controller
-public class UserLectureController {
+public class StudentLectureController {
 	@Autowired
 	LessonService lessonService;
 
@@ -146,7 +146,11 @@ public class UserLectureController {
 			// lessonIDを使用して購入する製品の情報を取得する
 			LessonEntity lessons = lessonService.findByLessonId(lessonId);
 			// 変数listに新たな商品情報を追加する
-			list.add(lessons);
+			if(isLessonExist(lessonId,list)) {
+				
+			}else {
+				list.add(lessons);
+			}
 			model.addAttribute("list", list);
 			model.addAttribute("loginFlg", loginCheck());
 			model.addAttribute("userName",loginUserName());
