@@ -53,7 +53,7 @@ public class Transaction_HistoryEntity {
 		return studentId;
 	}
 
-	public void setStudentId(long studentId) {
+	public void setStudentId(Long studentId) {
 		this.studentId = studentId;
 	}
 
