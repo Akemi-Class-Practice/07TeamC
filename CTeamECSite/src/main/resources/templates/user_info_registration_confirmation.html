@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ユーザー情報確認</title>
-    <link rel="stylesheet" th:href="@{/css/user_info_registration_confirmation.css}">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ユーザー情報確認</title>
+	<link rel="stylesheet" th:href="@{/css/user_info_registration_confirmation.css}">
 </head>
+
 <body>
-    <header>
-        <u>ユーザー情報確認</u>
-    </header>
-    <main>
-        <form th:action="@{/student/register/process}" method="post">
+	<header id="header">
+	</header>
+	<main>
+		<form th:action="@{/student/register/process}" method="post">
 			<div id="container">
-            <label for="studentName">ユーザー名</label>
-            <input type="text" name="studentName" th:value="${studentName}">
+				<h2 class="login_title">ユーザー情報確認</h2>
+				<p>
+					<span>ユーザー名:</span>
+					<span th:text="${studentName}"></span>
+				</p>
+				<p>
+					<span>メールアドレス:</span>
+					<span th:text="${studentEmail}"></span>
+				</p>
+				<p>
+					<span>パスワード:</span>
+					<span th:text="${studentPassword}"></span>
+				</p>
+				<input type="hidden" name="studentName" th:value="${studentName}">
+				<input type="hidden" name="studentEmail" th:value="${studentEmail}">
+				<input type="hidden" name="studentPassword" th:value="${studentPassword}">
 
-            <label for="studentEmail">メールアドレス</label>
-            <input type="text" name="studentEmail" th:value="${studentEmail}">
+				<button class="btn" type="submit">確認</button>
+				<button class="btn" type="button" onclick="location.href='/student/register'">修正</button>
+			</div>
+		</form>
+	</main>
 
-            <label for="studentPassword">パスワード</label>
-            <input type="text" name="studentPassword" th:value="${studentPassword}">
-
-            <button class="btn" type="submit" >確認</button>
-			 <button class="btn" type="button" >修正</button>
-            </div>
-        </form>
-    </main>
-        
 </body>
+
 </html>

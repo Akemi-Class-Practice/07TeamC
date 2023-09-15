@@ -25,15 +25,15 @@
 				<li><a th:href="@{/user/menu}">ホーム</a></li>
 				<li><a th:href="@{/user/show/cart}">カート</a></li>
 				<li><a th:href="@{/user/mypage}">マイページ</a></li>
-				<li>ログアウト</li>
+				<li><a th:href="@{/student/logout}">ログアウト</a></li>
 			</ul>
 		</div>
 		<div class="header-menu" th:if="${!loginFlg}">
 			<ul>
-				<li>ホーム</li>
-				<li>カート</li>
-				<li>マイページ</li>
-				<li><a th:href="@{/student/login}">ログイン</li>
+				<li><a th:href="@{/user/menu}">ホーム</a></li>
+				<li><a th:href="@{/student/login}">カート</a></li>
+				<li><a th:href="@{/student/login}">マイページ</a></li>
+				<li><a th:href="@{/student/login}">ログイン</a></li>
 			</ul>
 		</div>
 		<div>

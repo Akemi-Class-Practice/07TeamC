@@ -22,14 +22,14 @@
 <body>
 	<header class="header">
 		<div class="header-menu">
-			<ul>
-				<li>ユーザー名</li>
-				<li>ホーム</li>
-				<li>カート</li>
-				<li>マイページ</li>
-				<li>ログアウト</li>
-			</ul>
-		</div>
+				<ul>
+					<li th:text="${userName}"></li>
+					<li><a th:href="@{/user/menu}">ホーム</a></li>
+					<li><a th:href="@{/user/show/cart}">カート</a></li>
+					<li><a th:href="@{/user/mypage}">マイページ</a></li>
+					<li><a th:href="@{/student/logout}">ログアウト</a></li>
+				</ul>
+			</div>
 		<div>
 			<h3 class="title">Lecture</h3>
 		</div>

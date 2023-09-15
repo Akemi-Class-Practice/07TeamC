@@ -67,10 +67,10 @@ public class StudentLoginController {
 			
 		}
 	}
-/*		//logout
-       @GetMapping("/logout")
+ 	//logout
+       @GetMapping("/student/logout")
 	public String userLogout(){
 		session.invalidate();
 		return "redirect:/student/login";
-	}*/
+	}
 }
