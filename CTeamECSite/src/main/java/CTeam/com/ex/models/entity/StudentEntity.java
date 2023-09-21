@@ -46,7 +46,7 @@ public class StudentEntity {
 		this.registerDate = registerDate;
 	}
 
-	public StudentEntity(long studentId) {
+	public StudentEntity(Long studentId) {
 		this.studentId = studentId;
 	}
 
@@ -54,7 +54,7 @@ public class StudentEntity {
 		return studentId;
 	}
 
-	public void setStudentId(long studentId) {
+	public void setStudentId(Long studentId) {
 		this.studentId = studentId;
 	}
 

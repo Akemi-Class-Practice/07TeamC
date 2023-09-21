@@ -13,51 +13,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Kosugi+Maru&display=swap" rel="stylesheet">
     <title>カート</title>
-    <link rel="stylesheet" href="user_header.css">
-    <link rel="stylesheet" href="user_style.css">
+    <link rel="stylesheet" th:href="@{/css/user_header.css}">
+    <link rel="stylesheet" th:href="@{/css/user_style.css}">
 </head>
 
 <body>
     <header>
-        <div class="header-menu">
-            <ul>
-                <li>ユーザー名</li>
-                <li>ホーム</li>
-                <li>カート</li>
-                <li>マイページ</li>
-                <li>ログアウト</li>
-            </ul>
-        </div>
+         <div class="header-menu" th:if="${loginFlg}">
+				<ul>
+					<li th:text="${userName}"></li>
+					<li><a th:href="@{/user/menu}">ホーム</a></li>
+					<li><a th:href="@{/user/show/cart}">カート</a></li>
+					<li><a th:href="@{/user/mypage}">マイページ</a></li>
+					<li><a th:href="@{/student/logout}">ログアウト</a></li>
+				</ul>
+			</div>
+			<div class="header-menu" th:if="${!loginFlg}">
+				<ul>
+					<li><a th:href="@{/user/menu}">ホーム</a></li>
+					<li><a th:href="@{/student/login}">カート</a></li>
+					<li><a th:href="@{/student/login}">マイページ</a></li>
+					<li><a th:href="@{/student/login}">ログイン</a></li>
+				</ul>
+			</div>
         <div>
             <h3 class="title">Lecture</h3>
         </div>
     </header>
     <main>
-        <form action="" method="post">
             <div class="cart">
                 <h2>カート</h2>
                 <section>
                     <ul class="cart-item-list">
-                        <li class="cart-item">
-                            <img src="IMG_6819.jpg" alt="商品1" class="cartimg">
-                            <h4 class="cart-item-title">商品1</h4>
-                            <p class="cart-item-price">12000円</p>
-                            <div class="cart-item-quantity">
-                                <button class="cart-quantity-btn">-</button>
-                                <span class="cart-quantity">1</span>
-                                <button class="cart-quantity-btn">+</button>
-                            </div>
-                            <button class="cart-item-delete">删除</button>
+                        <li class="cart-item" th:each="lesson:${list}">
+							<div>
+                            <img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}" class="cartimg">
+                            <h4 class="cart-item-title" th:text="${lesson.lessonName}"></h4>
+                            <p class="cart-item-price" th:text="${#temporals.format(lesson.startDate, 'yyyy/MM/dd')}+'('+${#temporals.dayOfWeekName(lesson.startDate)}+')'+${#temporals.format(lesson.startTime, 'HH:mm')}+'-'+${#temporals.format(lesson.finishTime, 'HH:mm')}"></p>
+                           </div>
+                            <button class="cart-item-delete" th:attr="onClick='location.href=\''+'/user/cart/delete/'+${lesson.lessonId}+'\''">削除</button>
                         </li>
                     </ul>
+                    
                     <div class="cart-summary">
-                        <p class="cart-summary-total">合计：<strong>12000円</strong></p>
-                        <button class="cart-summary-submit">会計</button>
-                        <button class="cart-back">戻る</button>
+                        <button class="cart-summary-submit"　onclick="location.href='/payment_selection'">購入</button>
+                        <button class="cart-back" onclick="location.href='/user/menu'">戻る</button>
                     </div>
                 </section>
             </div>
-        </form>
     </main>
     <footer>
         <p class="foot"> Copyright &copy; 2023 </p>

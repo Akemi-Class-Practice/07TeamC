@@ -34,5 +34,16 @@ public class StudentService {
 			return student;
 		}
 	}
+	public StudentEntity findByStudentId(Long studentId) {
+		return studentDao.findByStudentId(studentId);
+	}
+	
+	//StudentPassword 更新メソッド
+	public void updatePassword(String studentEmail, String studentPassword) {
+		StudentEntity student = studentDao.findByStudentEmail(studentEmail);
+		student.setStudentPassword(studentPassword);
+		studentDao.save(student);
+	}
+		
 
 }

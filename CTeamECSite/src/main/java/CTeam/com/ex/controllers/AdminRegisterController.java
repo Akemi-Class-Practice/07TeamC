@@ -43,7 +43,6 @@ public class AdminRegisterController {
     }
     
     @PostMapping("/admin/register/process/confirm")
-    
     public String confirmAdminRegistration(HttpSession session) {
         // Retrieve data from HttpSession
         String adminName = (String) session.getAttribute("adminName");

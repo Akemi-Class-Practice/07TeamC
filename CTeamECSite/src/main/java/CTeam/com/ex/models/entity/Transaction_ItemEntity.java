@@ -22,8 +22,7 @@ public class Transaction_ItemEntity {
 	@Column(name = "transaction_id")
 	private Long transactionId;
 
-	public Transaction_ItemEntity(long id, long lessonId, long transactionId) {
-		this.id = id;
+	public Transaction_ItemEntity(Long lessonId, Long transactionId) {
 		this.lessonId = lessonId;
 		this.transactionId = transactionId;
 	}
@@ -32,7 +31,7 @@ public class Transaction_ItemEntity {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -40,7 +39,7 @@ public class Transaction_ItemEntity {
 		return lessonId;
 	}
 
-	public void setLessonId(long lessonId) {
+	public void setLessonId(Long lessonId) {
 		this.lessonId = lessonId;
 	}
 
@@ -48,7 +47,7 @@ public class Transaction_ItemEntity {
 		return transactionId;
 	}
 
-	public void setTransactionId(long transactionId) {
+	public void setTransactionId(Long transactionId) {
 		this.transactionId = transactionId;
 	}
 	
