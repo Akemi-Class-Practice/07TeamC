@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Borel&family=Kosugi+Maru&family=Rubik+Iso&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Borel&family=Kosugi+Maru&display=swap" rel="stylesheet">
+	<title>情報確認</title>
+	<link rel="stylesheet" th:href="@{/css/user_header.css}">
+	<link rel="stylesheet" th:href="@{/css/user_style.css}">
+
+</head>
+
+<body>
+	<header class="header">
+		<div class="header-menu">
+			<ul>
+				<li th:text="${userName}"></li>
+				<li><a th:href="@{/user/menu}">ホーム</a></li>
+				<li><a th:href="@{/user/show/cart}">カート</a></li>
+				<li><a th:href="@{/user/mypage}">マイページ</a></li>
+				<li>ログアウト</li>
+			</ul>
+		</div>
+	</header>
+	<main>
+		<h2>お申込み内容確認</h2>
+		<li class="cart-item" th:each="lesson:${list}">
+			<div>
+				<img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}" class="cartimg">
+				<p th:text="${'講座名：' + lesson.lessonName}"></p>
+				<p class="cart-item-price"
+					th:text="${'開催日付：' + #temporals.format(lesson.startDate, 'yyyy/MM/dd')}+'('+${#temporals.dayOfWeekName(lesson.startDate)}+')'+${#temporals.format(lesson.startTime, 'HH:mm')}+'-'+${#temporals.format(lesson.finishTime, 'HH:mm')}">
+				</p>
+				<p th:text="${'詳　細：' + lesson.lessonDetail}"></p>
+				<p th:text="${'料　金：' + lesson.lessonFee + '円'}"></p>
+			</div>
+		</li>
+		<div>
+			<p id="method">お支払い方法</p>
+			<p th:text="${paymentMethod}"></p>
+		</div>
+		<!--<div>
+			<div class="con-user">
+				<h5>会員情報</h5>
+				<p>ユーザー名：John Doe</p>
+				<p>メールアドレス：john@example.com</p>
+				<input type="button" value="変更">
+			</div>
+			<div class="con-lecture">
+				<h5>お申込み講座</h5>
+				<p>講座名：コンピュータサイエンス入門</p>
+				<p>日時：2023年9月1日 10:00 - 12:00</p>
+				<input type="button" value="変更">
+			</div>
+			<div class="con-pay">
+				<h5>お支払い方法</h5>
+				<p>選択した支払方法：<span th:text="${session.paymentMethod}"></span></p>
+				<input type="button" value="変更">
+			</div>
+		</div>-->
+		<div>
+			<form th:action="@{/payment_success}" method="post">
+				<button class="pay-check">確認</button>
+			</form>
+			<button class="pay-check" type="button" onclick="history.back();">戻る</button>
+		</div>
+	</main>
+
+	<footer>
+
+	</footer>
+</body>
+
+</html>
