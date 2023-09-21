@@ -11,48 +11,52 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
+//tableを指名する
 @Table(name = "lesson")
 public class LessonEntity {
 	
 	@Id
+	//フィールドとテーブルのカラムをマッピングする
 	@Column(name = "lesson_id")
+	//プライマリーキーを自動生成する方法を指定する
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	//lessonId
 	private Long lessonId;
-	
+	//講座開始日付け
 	@Column(name = "start_date")
 	private LocalDate startDate;
-	
+	//開始時間
 	@Column(name = "start_time")
 	private LocalTime startTime;
-	
+	//終了時間
 	@Column(name = "finish_time")
 	private LocalTime finishTime;
-	
+	//講座の名前
 	@Column(name = "lesson_name")
 	private String lessonName;
-	
+	//講座詳細
 	@Column(name = "lesson_detail")
 	private String lessonDetail;
-	
+	//講座費用
 	@Column(name = "lesson_fee")
 	private int lessonFee;
-	
+	//画像
 	@Column(name = "image_name")
 	private String imageName;
-	
+	//登録日付け
 	@Column(name = "register_date")
 	private LocalDate registerDate;
-	
+	//削除flg
 	@Column(name = "delete_flg")
 	private int deleteFlg;
-	
+	//adminId
 	@Column(name = "admin_id")
 	private Long adminId;
-
+	//空のコンストラクタの作成
 	public LessonEntity() {
 		
 	}
-
+	//全ての引数を持つコンストラクタの作成
 	public LessonEntity(LocalDate startDate, LocalTime startTime, LocalTime finishTime, String lessonName,
 			String lessonDetail, int lessonFee, String imageName, LocalDate registerDate, int deleteFlg, Long adminId) {
 		this.startDate = startDate;
@@ -66,7 +70,7 @@ public class LessonEntity {
 		this.deleteFlg = deleteFlg;
 		this.adminId = adminId;
 	}
-
+	//全ての引数のgetterとsetter
 	public Long getLessonId() {
 		return lessonId;
 	}

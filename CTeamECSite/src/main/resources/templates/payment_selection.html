@@ -4,24 +4,24 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	 <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Borel&family=Kosugi+Maru&family=Rubik+Iso&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Borel&family=Kosugi+Maru&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Borel&family=Kosugi+Maru&family=Rubik+Iso&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Borel&family=Kosugi+Maru&display=swap" rel="stylesheet">
 	<title>決済方法の選択</title>
 	<link rel="stylesheet" th:href="@{/css/user_header.css}">
-    <link rel="stylesheet" th:href="@{/css/user_style.css}">
+	<link rel="stylesheet" th:href="@{/css/user_style.css}">
 
 
 </head>
 
 <body>
 	<header class="header">
-		<div class="header-menu">
+		 <div class="header-menu" th:if="${loginFlg}">
 				<ul>
 					<li th:text="${userName}"></li>
 					<li><a th:href="@{/user/menu}">ホーム</a></li>
@@ -30,14 +30,29 @@
 					<li><a th:href="@{/student/logout}">ログアウト</a></li>
 				</ul>
 			</div>
+			<div class="header-menu" th:if="${!loginFlg}">
+				<ul>
+					<li><a th:href="@{/user/menu}">ホーム</a></li>
+					<li><a th:href="@{/student/login}">カート</a></li>
+					<li><a th:href="@{/student/login}">マイページ</a></li>
+					<li><a th:href="@{/student/login}">ログイン</a></li>
+				</ul>
+			</div>
 		<div>
 			<h3 class="title">Lecture</h3>
 		</div>
 	</header>
 
 	<main>
-		 <div class="pay-select">
-		<h2>決済方法の選択</h2>
+		<div class="pay-select">
+			<li class="cart-item" th:each="lesson:${list}">
+				<div class="pay-select-check">
+					<img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}" class="cartimg">
+					<p th:text="${'講座名：' + lesson.lessonName}"></p>
+					<p th:text="${'料　金：' + lesson.lessonFee + '円'}"></p>
+				</div>
+			</li>
+			<h2>決済方法の選択</h2>
 			<form th:action="@{/process}" method="post">
 
 				<label for="check1" name="check1">
@@ -62,9 +77,9 @@
 				</label>
 
 				<button type="submit" class="pay-check">確認</button>
-				<button class="pay-back" type="button">戻る</button>
+				<button class="pay-back" type="button" onclick="history.back();">戻る</button>
 			</form>
-		
+
 		</div>
 	</main>
 

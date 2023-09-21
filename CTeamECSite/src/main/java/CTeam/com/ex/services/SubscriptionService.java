@@ -12,6 +12,7 @@ import CTeam.com.ex.models.entity.SubscriptionEntity;
 public class SubscriptionService {
 	@Autowired
 	SubscriptionDao subscriptionDao;
+	//studentIdを条件にして購入歴史を検索して取得
 	public List<SubscriptionEntity>getPurchaseHistory(Long studentId){
 		return subscriptionDao.findByStudentId(studentId);
 	}

@@ -39,18 +39,24 @@
 				<div class="user-information">
 					<div class="user-inf">
 						<h4>会員情報</h4>
-						<p>名前：xxx</p>
-						<p>メールアドレス：xxx@xxx</p>
+						<p th:text="'会員名：'+${userName}"></p>
+						<p th:text="'メールアドレス：'+${userEmail}"></p>
 					</div>
-					<button class="change-inf" type="button">変更</button>
 
 				</div>
 				<div class="pay-history">
 					<h4>購入履歴</h4>
-					<img src="IMG_6819.jpg" alt="">
-					<p>講座名：java</p>
-					<p>購入日：2023/08/30</p>
-					<p>金額：12000円</p>
+					<ul>
+						<li th:each="lesson:${listSub}"
+							th:href="@{/lesson/detail/{lessonId}(lessonId=${lesson.lessonId})}">
+						<img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}">
+						<p th:text="${lesson.lessonName}"></p>
+						<p
+							th:text="${#temporals.format(lesson.startDate, 'yyyy/MM/dd')}+'('+${#temporals.dayOfWeekName(lesson.startDate)}+')'+${#temporals.format(lesson.startTime, 'HH:mm')}+'-'+${#temporals.format(lesson.finishTime, 'HH:mm')}">
+						</p>
+						<p th:text="${lesson.lessonFee}+'円（税込み）'"></p>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</form>

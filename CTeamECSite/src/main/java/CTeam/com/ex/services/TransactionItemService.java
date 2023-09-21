@@ -12,12 +12,14 @@ import CTeam.com.ex.models.entity.Transaction_ItemEntity;
 public class TransactionItemService {
 	@Autowired
 	private TransactionItemDao transactionItemDao;
-	
-	public void createTransactionHistory(Long transactionId,Long lessonId) {
-		transactionItemDao.save(new Transaction_ItemEntity(transactionId,lessonId));
+
+	// 保存処理
+	public void createTransactionHistory(Long lessonId,Long transactionId) {
+		transactionItemDao.save(new Transaction_ItemEntity(lessonId,transactionId));
 	}
-	
-	public List<Transaction_ItemEntity>deleteTransactionId(Long transactionId){
+
+	// 削除処理
+	public List<Transaction_ItemEntity> deleteTransactionId(Long transactionId) {
 		return transactionItemDao.deleteByTransactionId(transactionId);
 	}
 

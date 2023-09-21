@@ -54,8 +54,9 @@
     width: 50px;
     height: 30px;
     border-style: none;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 165px;
+    margin-bottom: 20px
 }
 .all-back{
     color: rgb(255, 255, 255);
@@ -88,7 +89,7 @@
     box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
     background-color: rgb(192, 206, 231);
     width: 430px;
-    height: 240px;
+    height: 200px;
     font-family: 'Borel', cursive;
     font-family: 'Kosugi Maru', sans-serif;
 }
@@ -101,21 +102,6 @@
 }
 .user-inf p{
     padding-left: 100px;
-}
-.change-inf{
-    color: rgb(255, 255, 255);
-    background-color: rgb(79, 133, 169);
-    border-radius: 2vh;
-    outline-color: black;
-    width: 50px;
-    height: 30px;
-    border-style: none;
-    margin-top: 30px;
-    margin-left: 190px;
-}
-.change-inf:hover{
-    color: rgb(203, 235, 235);
-    background-color: rgb(51, 102, 112);
 }
 .pay-history{
     width: 210px;
@@ -135,10 +121,10 @@
     padding-top: 30px;
 }
 .pay-history p{
-    padding-left: 200px;
+    padding-left: 110px;
 }
 .pay-history img{
-    padding-left: 150px;
+    padding-left: 120px;
 }
 .mypage h2{
     text-align: center;
@@ -154,7 +140,13 @@
     box-shadow: 0 0 0 3px rgba(255, 248, 248, 0.5);
     background-color: rgb(192, 206, 231);
     width: 430px;
-    height: 310px;
+    height: auto;
+}
+.pay-select-check{
+	padding-top: 20px;
+	font-family: 'Borel', cursive;
+    font-family: 'Kosugi Maru', sans-serif;
+    color: #0d3652;
 }
 .pay-select label{
     display: block;
@@ -175,7 +167,8 @@
     border-style: none;
     margin-top: 30px;
     margin-left: 120px;
-}
+    margin-bottom: 20px
+    }
 .pay-back{
     color: rgb(255, 255, 255);
     background-color: rgb(79, 133, 169);
@@ -515,4 +508,10 @@
 .relogin:hover{
     color: rgb(203, 235, 235);
     background-color: rgb(51, 102, 112);
+}
+.pay-history li{
+    list-style: none;
+}
+.con-lecture li{
+	list-style: none;
 }

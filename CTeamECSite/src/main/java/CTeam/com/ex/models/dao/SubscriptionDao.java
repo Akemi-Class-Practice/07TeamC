@@ -9,7 +9,9 @@ import CTeam.com.ex.models.entity.KeyEntity;
 import CTeam.com.ex.models.entity.SubscriptionEntity;
 
 public interface SubscriptionDao extends JpaRepository<SubscriptionEntity,KeyEntity>{
-	@Query(value = "select a.transaction_date,a.student_id,a.amount,a.transaction_id,b.lesson_id,c.start_date,c.start_time,c.finish_time,c.lesson_name,c.lesson_detail,c.lesson_fee,c.image_name from transaction_history a join transaction_item b on a.a.transaction_id=b.transaction_id join lesson c on b.lesson_id=c.lesson_id where student_id=?1",nativeQuery = true)
+	//テーブル結合
+	@Query(value = "select a.transaction_date,a.student_id,a.amount,a.transaction_id,b.lesson_id,c.start_date,c.start_time,c.finish_time,c.lesson_name,c.lesson_detail,c.lesson_fee,c.image_name from transaction_history a join transaction_item b on a.transaction_id=b.transaction_id join lesson c on b.lesson_id=c.lesson_id where student_id=?1",nativeQuery = true)
+	//studentIdを条件にDBから検索して取得
 	List<SubscriptionEntity>findByStudentId(Long studentId);
 
 }
