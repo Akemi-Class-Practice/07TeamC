@@ -16,17 +16,20 @@ public class AdminLoginController {
 	private AdminService adminService;
 	@Autowired
 	private HttpSession session;
-	    
-	 @PostMapping("/admin/login/process")
-		public String getAdminLoginProcessPage(@RequestParam String adminName,
-				@RequestParam String adminPassword,
-				Model model) {
-			AdminEntity adminEntity = adminService.findByAdminNameAndAdminPassword(adminName, adminPassword);
-			if(adminEntity == null) {
-				return "redirect:/admin/login";
-			}else {
-				session.setAttribute("admin", adminEntity);
-				return "redirect:/lesson/list";
-			}
+
+	// 送信されたログインデータの処理
+	@PostMapping("/admin/login/process")
+	public String getAdminLoginProcessPage(@RequestParam String adminName, @RequestParam String adminPassword,
+			Model model) {
+		// adminEntityのなか対応する名前とパスワードを検索します
+		AdminEntity adminEntity = adminService.findByAdminNameAndAdminPassword(adminName, adminPassword);
+		// なかった場合このページのまま
+		if (adminEntity == null) {
+			return "redirect:/admin/login";
+			// あった場合一覧ページに飛ぶ
+		} else {
+			session.setAttribute("admin", adminEntity);
+			return "redirect:/lesson/list";
 		}
+	}
 }

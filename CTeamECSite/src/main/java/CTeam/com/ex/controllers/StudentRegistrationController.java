@@ -38,6 +38,7 @@ public class StudentRegistrationController {
 		public String getStudentRegisterProcessPage(@RequestParam String studentName,
 				@RequestParam String studentEmail,
 				@RequestParam String studentPassword) {
+			// 成功した場合ログインページに飛ぶ
 			studentService.creatStudent(studentName, studentEmail, studentPassword);
 			return "user_login.html";
 		}

@@ -20,14 +20,14 @@
 <body>
 	<header>
 		<div class="header-menu">
-				<ul>
-					<li th:text="${userName}"></li>
-					<li><a th:href="@{/user/menu}">ホーム</a></li>
-					<li><a th:href="@{/user/show/cart}">カート</a></li>
-					<li><a th:href="@{/user/mypage}">マイページ</a></li>
-					<li><a th:href="@{/student/logout}">ログアウト</a></li>
-				</ul>
-			</div>
+			<ul>
+				<li th:text="${userName}"></li>
+				<li><a th:href="@{/user/menu}">ホーム</a></li>
+				<li><a th:href="@{/user/show/cart}">カート</a></li>
+				<li><a th:href="@{/user/mypage}">マイページ</a></li>
+				<li><a th:href="@{/student/logout}">ログアウト</a></li>
+			</ul>
+		</div>
 		<div>
 			<h3 class="title">Lecture</h3>
 		</div>
@@ -38,25 +38,29 @@
 			<div>
 				<div class="con-user">
 					<h4>会員情報</h4>
-					<p>ユーザー名：John Doe</p>
-					<p>メールアドレス：john@example.com</p>
+					<p th:text="'会員名：'+${userName}"></p>
+					<p th:text="'メールアドレス：'+${userEmail}"></p>
 				</div>
-				<button class="change">変更</button>
 				<div class="con-lecture">
-					<h4>お申込み講座</h4>
-					<img src="IMG_6819.jpg" alt="">
-					<p>講座名：コンピュータサイエンス入門</p>
-					<p>日時：2023年9月1日 10:00 - 12:00</p>
+					<li th:each="lesson:${list}">
+						<h4>お申込み講座</h4>
+						<img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}" class="cartimg">
+						<p th:text="${'講座名：' + lesson.lessonName}"></p>
+						<p class="cart-item-price"
+							th:text="${'開催日付：' + #temporals.format(lesson.startDate, 'yyyy/MM/dd')}+'('+${#temporals.dayOfWeekName(lesson.startDate)}+')'+${#temporals.format(lesson.startTime, 'HH:mm')}+'-'+${#temporals.format(lesson.finishTime, 'HH:mm')}">
+						</p>
+						<p th:text="${'詳　細：' + lesson.lessonDetail}"></p>
+						<p th:text="${'料　金：' + lesson.lessonFee + '円'}"></p>
+					</li>
 				</div>
-				<button class="change">変更</button>
 				<div class="con-pay">
 					<h5>お支払い方法</h5>
-					<p>選択した支払方法：<span th:text="${session.paymentMethod}"></span></p>
+					<p th:text="${paymentMethod}"></p>
 				</div>
-				<button class="pay-change">変更</button>
+
 				<form th:action="@{/payment_success}" method="post">
 					<button class="all-check" type="submit">確認</button>
-					<button class="all-back" type="button">戻る</button>
+					<button class="all-back" type="button" onclick="history.back();">戻る</button>
 				</form>
 			</div>
 		</div>

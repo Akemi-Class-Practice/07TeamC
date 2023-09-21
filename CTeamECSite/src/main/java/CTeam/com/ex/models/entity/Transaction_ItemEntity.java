@@ -8,11 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
+//tableを指名する
 @Table(name = "transaction_item")
 public class Transaction_ItemEntity {
 	
 	@Id
+	//フィールドとテーブルのカラムをマッピングする
 	@Column(name = "id")
+	//プライマリーキーを自動生成する方法を指定する
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
@@ -21,13 +24,18 @@ public class Transaction_ItemEntity {
 	
 	@Column(name = "transaction_id")
 	private Long transactionId;
+	//空の引数を持つコンストラクタの作成
+	public Transaction_ItemEntity() {
 
+	}
+	
+	//全ての引数を持つコンストラクタの作成
 	public Transaction_ItemEntity(Long lessonId, Long transactionId) {
 		this.lessonId = lessonId;
 		this.transactionId = transactionId;
 	}
-
-	public long getId() {
+    //全ての引数のgetterとsetter
+	public Long getId() {
 		return id;
 	}
 
@@ -35,7 +43,7 @@ public class Transaction_ItemEntity {
 		this.id = id;
 	}
 
-	public long getLessonId() {
+	public Long getLessonId() {
 		return lessonId;
 	}
 
@@ -43,7 +51,7 @@ public class Transaction_ItemEntity {
 		this.lessonId = lessonId;
 	}
 
-	public long getTransactionId() {
+	public Long getTransactionId() {
 		return transactionId;
 	}
 

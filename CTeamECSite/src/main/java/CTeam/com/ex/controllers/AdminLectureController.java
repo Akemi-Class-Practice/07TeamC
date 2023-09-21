@@ -94,13 +94,15 @@ public class AdminLectureController {
 		// 登録した講座を保存します
 		if (lessonService.createLessonPost(startDate, startTime, finishTime, lessonName, lessonDetail, lessonFee,
 				imageName, startDate, adminId)) {
+			// 保存成功した場合成功画面に飛ぶ
 			return "lecture_register_fix.html";
 		} else {
+			// 失敗した場合そのまま
 			return "redirect:/lesson/register";
 		}
 	}
 
-	// 講座更新
+	// 講座更新画面の取得
 	@GetMapping("/lesson/edit/{lessonId}")
 	public String getLessonEditPage(@PathVariable Long lessonId, Model model) {
 		// ログインしてるadmin情報を取得する
@@ -108,10 +110,12 @@ public class AdminLectureController {
 		// ログインしている人の名前と講座listを取得
 		String adminName = adminEntity.getAdminName();
 		LessonEntity lessonList = lessonService.getLessonPost(lessonId);
+		// 講座がある場合
 		if (lessonList != null) {
 			model.addAttribute("adminName", adminName);
 			model.addAttribute("lesson", lessonList);
 			return "lecture_edit.html";
+			// 講座がない場合
 		} else {
 			return "redirecr:/lesson/list";
 		}
@@ -125,79 +129,87 @@ public class AdminLectureController {
 			@RequestParam(name = "finishTime") @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime finishTime,
 			@RequestParam String lessonName, @RequestParam String lessonDetail, @RequestParam int lessonFee,
 			Model model) {
+		// ログインしてるadmin情報を取得する
 		AdminEntity adminEntity = (AdminEntity) session.getAttribute("admin");
 		Long adminId = adminEntity.getAdminId();
+		// 講座を更新する
 		lessonService.editLesson(lessonId, startDate, startTime, finishTime, lessonName, lessonDetail, lessonFee,
 				adminId);
 		model.addAttribute("lessonId", lessonId);
 		return "lecture_edit_fix.html";
 	}
 
-	
-	//講座画像更新画面取得
-		@GetMapping("/imag/edit/{lessonId}")
-		public String GetImageEditPage(@PathVariable Long lessonId,Model model) {
-			//ログインしてるadmin情報を取得する
-			AdminEntity adminEntity = (AdminEntity) session.getAttribute("admin");
-			// ログインしている人の名前と講座listを取得
-			String adminName = adminEntity.getAdminName();
-			LessonEntity lessonList = lessonService.getLessonPost(lessonId);
-				if(lessonList != null) {
-					model.addAttribute("ladminName",adminName);
-					model.addAttribute("lesson",lessonList);
-					return "lecture_image_edit.html";
-				}else {
-					return "redirecr:/lesson/list";
-				}
-			}
-		
-		//講座画像更新処理
-		@PostMapping("/image/edit/update")
-		public String editImage(@RequestParam Long lessonId,
-				@RequestParam("imageName") MultipartFile imageName,
-				Model model) {
-			AdminEntity admin = (AdminEntity) session.getAttribute("admin");
-			Long adminId = admin.getAdminId();
-			if(admin != null) {
-				String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date()) + imageName.getOriginalFilename();
-				try {
-					Files.copy(imageName.getInputStream(), Path.of("src/main/resources/static/lesson-img/" + fileName));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if(lessonService.editImageLesson(lessonId, fileName, adminId)) {
-					model.addAttribute("lessonId",lessonId);
-					return  "lecture_edit_fix.html";
-				}
-			}
-			return null;
-			
+	// 講座画像更新画面取得
+	@GetMapping("/imag/edit/{lessonId}")
+	public String GetImageEditPage(@PathVariable Long lessonId, Model model) {
+		// ログインしてるadmin情報を取得する
+		AdminEntity adminEntity = (AdminEntity) session.getAttribute("admin");
+		// ログインしている人の名前と講座listを取得
+		String adminName = adminEntity.getAdminName();
+		LessonEntity lessonList = lessonService.getLessonPost(lessonId);
+		// 講座がある場合
+		if (lessonList != null) {
+			model.addAttribute("adminName", adminName);
+			model.addAttribute("lesson", lessonList);
+			return "lecture_image_edit.html";
+		} else {
+			// 講座がない場合は一覧画面のまま
+			return "redirecr:/lesson/list";
 		}
-		
-		
+	}
+
+	// 講座画像更新処理
+	@PostMapping("/image/edit/update")
+	public String editImage(@RequestParam Long lessonId, @RequestParam("imageName") MultipartFile imageName,
+			Model model) {
+		// ログインしてるadmin情報を取得する
+		AdminEntity admin = (AdminEntity) session.getAttribute("admin");
+		Long adminId = admin.getAdminId();
+		// adminがある場合
+		if (admin != null) {
+			// 日時とファイルの名前をfileName変数に代入
+			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date())
+					+ imageName.getOriginalFilename();
+			try {
+				// ファイルを保存
+				Files.copy(imageName.getInputStream(), Path.of("src/main/resources/static/lesson-img/" + fileName));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			// 成功した場合成功画面に飛ぶ
+			if (lessonService.editImageLesson(lessonId, fileName, adminId)) {
+				model.addAttribute("lessonId", lessonId);
+				return "lecture_edit_fix.html";
+			}
+		}
+		// adminがない場合
+		return null;
+
+	}
+
+	// 削除画面の取得
 	@GetMapping("/delete/detail/{lessonId}")
 	public String getLessonDeleteDetailPage(@PathVariable Long lessonId, Model model) {
-		// admin情報を取得
-		/*
-		 * AdminEntity adminEntity = (AdminEntity)session.getAttribute("admin"); String
-		 * adminName = adminEntity.getAdminName(); model.addAttribute("adminName",
-		 * adminName);
-		 */
+		// 講座情報を取得
 		LessonEntity lessonList = lessonService.getLessonPost(lessonId);
+		// 講座がなかった場合は一覧のまま
 		if (lessonList == null) {
 			return "redirecr:/lesson/list";
 		} else {
+			// あった場合は削除ページを表示
 			model.addAttribute("lessonList", lessonList);
 			return "lecture_delete.html";
 		}
 	}
 
+//削除処理
 	@PostMapping("/lesson/delete")
 	public String LessonDelete(@RequestParam Long lessonId) {
 		if (lessonService.deleteLesson(lessonId)) {
+			// 成功した場合は成功の画面に飛ぶ
 			return "lecture_delete_fix.html";
 		} else {
+			// 失敗した場合は削除ページのまま
 			return "lecture_delete.html";
 		}
 	}

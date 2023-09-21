@@ -11,11 +11,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
+//tableを指名する
 @Table(name = "transaction_history")
 public class Transaction_HistoryEntity {
 	
 	@Id
+	//フィールドとテーブルのカラムをマッピングする
 	@Column(name = "transaction_id")
+	//プライマリーキーを自動生成する方法を指定する
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long transactionId;
 	
@@ -27,21 +30,17 @@ public class Transaction_HistoryEntity {
 	
 	@Column(name = "transaction_date")
 	private LocalDateTime transactionDate;
-
-	public Transaction_HistoryEntity(Long transactionId, Long studentId, int amount, LocalDateTime transactionDate) {
-		this.transactionId = transactionId;
-		this.studentId = studentId;
-		this.amount = amount;
-		this.transactionDate = transactionDate;
+	//空のコンストラクタの作成
+	public Transaction_HistoryEntity() {
 	}
-
+	//必要引数を持つコンストラクタの作成
 	public Transaction_HistoryEntity( Long studentId, int amount, LocalDateTime transactionDate) {
 		this.studentId = studentId;
 		this.amount = amount;
 		this.transactionDate = transactionDate;
 	}
-
-	public long getTransactionId() {
+    //全ての引数のgetterとsetter
+	public Long getTransactionId() {
 		return transactionId;
 	}
 
@@ -49,7 +48,7 @@ public class Transaction_HistoryEntity {
 		this.transactionId = transactionId;
 	}
 
-	public long getStudentId() {
+	public Long getStudentId() {
 		return studentId;
 	}
 

@@ -19,11 +19,12 @@ public class StudentLoginController {
 	@Autowired
 	private HttpSession session;
 	
+	//ログイン画面の取得
 	@GetMapping("/student/login")
 	public String getStudentLoginPage() {
 		return "user_login.html";
 	}
-	
+	//ログイン処理
 	@PostMapping("/student/login/process")
 	public String login(@RequestParam String studentEmail,
 			@RequestParam String studentPassword,
@@ -46,7 +47,7 @@ public class StudentLoginController {
 		}
 	}
 	
-	//パスワード変更画面
+	//パスワード変更画面の取得
 	@GetMapping("/student/password/change")
 	public String getPasswordChangePage(Model model) {
 		//AdminEntity password = adminService.findByAdminId(adminId);

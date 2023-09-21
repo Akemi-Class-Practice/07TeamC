@@ -10,33 +10,38 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
+//tableを指名する
 @Table(name = "student")
 public class StudentEntity {
 
 	@Id
+	// フィールドとテーブルのカラムをマッピングする
 	@Column(name = "student_id")
+	// プライマリーキーを自動生成する方法を指定する
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long studentId;
-
+	// ユーザー名
 	@Column(name = "student_name")
 	private String studentName;
-
+	// メールアドレス
 	@Column(name = "student_email")
 	private String studentEmail;
-
+	// パスワード
 	@Column(name = "student_password")
 	private String studentPassword;
 
-	// 0と1の 2つの状態だけある
+	// 削除flg
 	@Column(name = "delete_flg")
 	private int deleteFlg;
-
+	// 登録日付け
 	@Column(name = "register_date")
 	private LocalDate registerDate;
 
+	// 空のコンストラクタの作成
 	public StudentEntity() {
 	}
 
+	// 全ての引数を持つコンストラクタの作成
 	public StudentEntity(String studentName, String studentEmail, String studentPassword, int deleteFlg,
 			LocalDate registerDate) {
 		this.studentName = studentName;
@@ -46,6 +51,7 @@ public class StudentEntity {
 		this.registerDate = registerDate;
 	}
 
+	// 全ての引数のgetterとsetter
 	public StudentEntity(Long studentId) {
 		this.studentId = studentId;
 	}
