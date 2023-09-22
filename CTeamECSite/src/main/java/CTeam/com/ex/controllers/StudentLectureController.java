@@ -244,4 +244,5 @@ public class StudentLectureController {
 			}
 			return "payment_selection.html";
 		}
+		
 }
