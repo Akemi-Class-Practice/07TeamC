@@ -28,10 +28,16 @@ public class StudentRegistrationController {
 			@RequestParam String studentEmail,
 			@RequestParam String studentPassword,
 			Model model) {
-		model.addAttribute("studentName",studentName);
-		model.addAttribute("studentEmail",studentEmail);
-		model.addAttribute("studentPassword",studentPassword);
-		return "user_info_registration_confirmation.html";
+		//同じ登録内容が存在しなかった場合登録できる
+		if(studentService.creatStudent(studentName, studentEmail, studentPassword)) {
+			model.addAttribute("studentName",studentName);
+			model.addAttribute("studentEmail",studentEmail);
+			model.addAttribute("studentPassword",studentPassword);
+			return "user_info_registration_confirmation.html";
+		}else {
+			//同じ登録内容が存在した場合このページのまま
+			return "redirect:/student/register";
+		}
 	}
 	//登録機能
 		@PostMapping("/student/register/process")

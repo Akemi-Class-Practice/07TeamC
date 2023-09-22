@@ -98,10 +98,10 @@
     color: #0d3652;
 }
 .user-inf h4{
-    padding-left: 180px;
+     text-align: center;
 }
 .user-inf p{
-    padding-left: 100px;
+     text-align: center;
 }
 .pay-history{
     width: 210px;
@@ -514,4 +514,14 @@
 }
 .con-lecture li{
 	list-style: none;
+}
+.user-menu{
+	display: flex;
+	align-items: center; 
+}
+.user-menu-list{
+	list-style: none;
+	padding: 20px;
+	width:100%;
+	align-items: center; 
 }
