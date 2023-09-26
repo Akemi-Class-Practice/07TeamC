@@ -49,12 +49,12 @@
 					<ul>
 						<li th:each="lesson:${listSub}"
 							th:href="@{/lesson/detail/{lessonId}(lessonId=${lesson.lessonId})}">
-						<img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}">
-						<p th:text="${lesson.lessonName}"></p>
-						<p
-							th:text="${#temporals.format(lesson.startDate, 'yyyy/MM/dd')}+'('+${#temporals.dayOfWeekName(lesson.startDate)}+')'+${#temporals.format(lesson.startTime, 'HH:mm')}+'-'+${#temporals.format(lesson.finishTime, 'HH:mm')}">
-						</p>
-						<p th:text="${lesson.lessonFee}+'円（税込み）'"></p>
+							<img th:src="@{/lesson-img/{items}(items=${lesson.imageName})}">
+							<p th:text="${lesson.lessonName}"></p>
+							<p
+								th:text="${#temporals.format(lesson.startDate, 'yyyy/MM/dd')}+'('+${#temporals.dayOfWeekName(lesson.startDate)}+')'+${#temporals.format(lesson.startTime, 'HH:mm')}+'-'+${#temporals.format(lesson.finishTime, 'HH:mm')}">
+							</p>
+							<p th:text="${lesson.lessonFee}+'円（税込み）'"></p>
 						</li>
 					</ul>
 				</div>

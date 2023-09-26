@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>講座登録</title>
-    <link rel="stylesheet"th:href="@{/css/lecture_edit.css}">
+	<meta charset="UTF-8">
+	<title>講座登録</title>
+	<link rel="stylesheet" th:href="@{/css/lecture_edit.css}">
 </head>
+
 <body>
-    <header>
-        <h1>講座登録</h1>
-        <div class="link">
-            <p th:text="${adminName}"></p>
-            <ul>
-                <a th:href="@{/lesson/list}">講座一覧</a>
-                <a th:href="@{/lesson/register}">講座登録</a>
-                <a th:href="@{/admin/login}">ログアウト</a>
-            </ul>
-        </div>
-    </header>
-    <main>
-        <div class="registration-form">
-            <form th:action="@{/lesson/register/process/confirm}" enctype="multipart/form-data" method="post">
-                <div class="form-group">
-                    <label for="courseName">講座名</label>
-                    <input type="text" id="courseName" name="lessonName" required>
-                </div>
-                <div class="form-group">
-                    <label for="courseDescription">講座詳細</label>
-                    <textarea id="courseDescription" name="lessonDetail" rows="5" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="courseDate">講座日</label>
-                    <input type="date" id="courseDate" name="startDate" required>
-                </div>
-                <div class="form-group">
-                    <label for="startTime">開始時間</label>
-                    <input type="time" id="startTime" name="startTime" required>
-                </div>
-                <div class="form-group">
-                    <label for="endTime">終了時間</label>
-                    <input type="time" id="endTime" name="finishTime" required>
-                </div>
-                <div class="form-group">
-                    <label for="courseFee">講座費用</label>
-                    <input type="number" id="courseFee" name="lessonFee" required>
-                </div>
-                <div class="form-group">
-                    <label for="courseImage">講座画像</label>
-                    <input type="file" id="courseImage" name="imageName" accept="image/*" required>
-                </div>
-                <button type="submit">講座登録</button>
-            </form>
-        </div>
-    </main>
-    <footer>
-        <small>COPYRIGHT&copy;2023TeamC</small>
-    </footer>
+	<header>
+		<h1>講座登録</h1>
+		<div class="link">
+			<p th:text="${adminName}"></p>
+			<ul>
+				<a th:href="@{/lesson/list}">講座一覧</a>
+				<a th:href="@{/lesson/register}">講座登録</a>
+				<a th:href="@{/admin/login}">ログアウト</a>
+			</ul>
+		</div>
+	</header>
+	<main>
+		<div class="registration-form">
+			<form th:action="@{/lesson/register/process/confirm}" enctype="multipart/form-data" method="post">
+				<div class="form-group">
+					<label for="courseName">講座名</label>
+					<input type="text" id="courseName" name="lessonName" required>
+				</div>
+				<div class="form-group">
+					<label for="courseDescription">講座詳細</label>
+					<textarea id="courseDescription" name="lessonDetail" rows="5" required></textarea>
+				</div>
+				<div class="form-group">
+					<label for="courseDate">講座日</label>
+					<input type="date" id="courseDate" name="startDate" required>
+				</div>
+				<div class="form-group">
+					<label for="startTime">開始時間</label>
+					<input type="time" id="startTime" name="startTime" required>
+				</div>
+				<div class="form-group">
+					<label for="endTime">終了時間</label>
+					<input type="time" id="endTime" name="finishTime" required>
+				</div>
+				<div class="form-group">
+					<label for="courseFee">講座費用</label>
+					<input type="number" id="courseFee" name="lessonFee" required>
+				</div>
+				<div class="form-group">
+					<label for="courseImage">講座画像</label>
+					<input type="file" id="courseImage" name="imageName" accept="image/*" required>
+				</div>
+				<button type="submit">講座登録</button>
+				<button type="button" onclick="history.back();">戻る</button>
+			</form>
+		</div>
+	</main>
+	<footer>
+		<small>COPYRIGHT&copy;2023TeamC</small>
+	</footer>
 </body>
+
 </html>

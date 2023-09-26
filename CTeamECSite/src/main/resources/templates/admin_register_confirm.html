@@ -12,12 +12,12 @@
 	<header></header>
 	<main>
 		<section>
-		<h1>登録情報確認</h1>
-		<p>名前: <span th:text="${session.adminName}"></span></p>
-		<p>メールアドレス: <span th:text="${session.adminEmail}"></span></p>
-		<form th:action="@{/admin/register/process/confirm}" method="post">
-			<button type="submit">確認</button>
-		</form>
+			<h1>登録情報確認</h1>
+			<p>名前: <span th:text="${session.adminName}"></span></p>
+			<p>メールアドレス: <span th:text="${session.adminEmail}"></span></p>
+			<form th:action="@{/admin/register/process/confirm}" method="post">
+				<button type="submit">確認</button>
+			</form>
 		</section>
 	</main>
 	<footer>

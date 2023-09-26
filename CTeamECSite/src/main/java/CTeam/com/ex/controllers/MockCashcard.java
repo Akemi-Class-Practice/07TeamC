@@ -39,17 +39,18 @@ public class MockCashcard {
 	public void setMoney(double money) {
 		this.money = money;
 	}
-    //カードの利用
+
+	// カードの利用
 	public boolean deductAmount(double total) {
-		//金額がカード中のお金より小さい場合
+		// 金額がカード中のお金より小さい場合
 		if (total > 0 && total <= money) {
-			//利用した金額を減って
+			// 利用した金額を減って
 			money -= total;
-			//残りの金額を表示
+			// 残りの金額を表示
 			System.out.println("Deducted " + total + " JPY from card " + cardNumber);
 			return true;
 		} else {
-			//金額がカード中のお金より大きな場合利用できない
+			// 金額がカード中のお金より大きな場合利用できない
 			System.out.println("Insufficient funds or invalid amount");
 			return false;
 		}
