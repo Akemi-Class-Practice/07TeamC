@@ -116,20 +116,20 @@ public class StudentLectureController {
 	// マイページの画面取得
 	@GetMapping("/mypage")
 	public String getMypage(Model model) {
-		//ログインしない場合ログイン画面に飛ぶ
+		// ログインしない場合ログイン画面に飛ぶ
 		if (session.getAttribute("student") == null) {
 			return login("/user/login");
 		} else {
-			//ログインした場合ユーザー情報を取得
+			// ログインした場合ユーザー情報を取得
 			StudentEntity student = (StudentEntity) session.getAttribute("student");
 			Long studentId = student.getStudentId();
-			//購入履歴取得
+			// 購入履歴取得
 			List<SubscriptionEntity> listSub = subscriptionService.getPurchaseHistory(studentId);
-			//購入履歴表示
+			// 購入履歴表示
 			model.addAttribute("listSub", listSub);
-			//ログインしているかどうか確認
+			// ログインしているかどうか確認
 			model.addAttribute("loginFlg", loginCheck());
-			//マイページで名前とメールアドレスを表示
+			// マイページで名前とメールアドレスを表示
 			model.addAttribute("userName", student.getStudentName());
 			model.addAttribute("userEmail", student.getStudentEmail());
 			return "mypage.html";
@@ -228,21 +228,22 @@ public class StudentLectureController {
 		list.remove(idx);
 		return "redirect:/user/show/cart";
 	}
+
 	// 支払い画面
-		@GetMapping("/payment_selection")
-		public String showPaymentPage(Model model) {
-			if (session.getAttribute("cart") != null) {
-				LinkedList<LessonEntity> list = (LinkedList<LessonEntity>) session.getAttribute("cart");
-				model.addAttribute("list", list);
-				model.addAttribute("loginFlg", loginCheck());
-				model.addAttribute("userName", loginUserName());
-			}else {
-				LinkedList<LessonEntity> list = new LinkedList<LessonEntity>();
-				model.addAttribute("list", list);
-				model.addAttribute("loginFlg", loginCheck());
-				model.addAttribute("userName", loginUserName());
-			}
-			return "payment_selection.html";
+	@GetMapping("/payment_selection")
+	public String showPaymentPage(Model model) {
+		if (session.getAttribute("cart") != null) {
+			LinkedList<LessonEntity> list = (LinkedList<LessonEntity>) session.getAttribute("cart");
+			model.addAttribute("list", list);
+			model.addAttribute("loginFlg", loginCheck());
+			model.addAttribute("userName", loginUserName());
+		} else {
+			LinkedList<LessonEntity> list = new LinkedList<LessonEntity>();
+			model.addAttribute("list", list);
+			model.addAttribute("loginFlg", loginCheck());
+			model.addAttribute("userName", loginUserName());
 		}
-		
+		return "payment_selection.html";
+	}
+
 }

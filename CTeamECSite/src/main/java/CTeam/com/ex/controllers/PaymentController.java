@@ -32,8 +32,6 @@ public class PaymentController {
 	@Autowired
 	private PaymentService paymentService;
 
-	
-
 	// 支払い処理
 	@PostMapping("/process")
 	public String processPayment(@RequestParam String paymentMethod, Model model) {
@@ -95,8 +93,8 @@ public class PaymentController {
 		Iterator<LessonEntity> ite2 = list.iterator();
 		while (ite2.hasNext()) {
 			LessonEntity element = ite2.next();
-			transactionItemService.createTransactionHistory(element.getLessonId(),lastestTransactions.getTransactionId()
-				);
+			transactionItemService.createTransactionHistory(element.getLessonId(),
+					lastestTransactions.getTransactionId());
 		}
 
 //    	LinkedList<LessonEntity> list2 = (LinkedList<LessonEntity>) session.getAttribute("cart");
